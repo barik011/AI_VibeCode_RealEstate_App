@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "quote": "Dubai bayt made our investment journey seamless. Their team was professional, transparent, and truly understood our goals. We couldn’t be happier with our new apartment in Downtown Dubai.",
+    "name": "James Carter",
+    "role": "Investor from the UK",
+    "rating": 5,
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+  },
+  {
+    "id": 2,
+    "quote": "From our first conversation to finding the right neighbourhood, the advice was thoughtful and personal. We found a place that feels like home from the moment you walk in.",
+    "name": "Amelia Ross",
+    "role": "Homeowner from Australia",
+    "rating": 5,
+    "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=85"
+  },
+  {
+    "id": 3,
+    "quote": "We appreciated the clear explanations and attention to the small details. The team helped us explore our options with confidence and at our own pace.",
+    "name": "Arjun Mehta",
+    "role": "Investor from India",
+    "rating": 5,
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=85"
+  }
+]

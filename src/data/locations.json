@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "downtown-dubai",
+    "name": "Downtown Dubai",
+    "tagline": "At the heart of extraordinary.",
+    "description": "Landmark architecture, celebrated dining and the rhythm of a global city. Downtown brings the best of Dubai to your doorstep.",
+    "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=85",
+    "coordinates": {
+      "lat": 25.1972,
+      "lng": 55.2744
+    }
+  },
+  {
+    "slug": "palm-jumeirah",
+    "name": "Palm Jumeirah",
+    "tagline": "An island. A world of its own.",
+    "description": "Wake to calm water and uninterrupted horizons. Discover private beach living on Dubai’s most distinctive island.",
+    "image": "https://images.unsplash.com/photo-1764212193268-dba11709dc38?auto=format&fit=crop&w=1600&q=85",
+    "coordinates": {
+      "lat": 25.1124,
+      "lng": 55.139
+    }
+  },
+  {
+    "slug": "dubai-marina",
+    "name": "Dubai Marina",
+    "tagline": "Life, beautifully by the water.",
+    "description": "A lively waterfront neighbourhood with yacht-lined promenades, independent cafés and exceptional sea-view residences.",
+    "image": "https://images.unsplash.com/photo-1682410601760-6372fd33ad2b?auto=format&fit=crop&w=1800&q=85",
+    "coordinates": {
+      "lat": 25.0805,
+      "lng": 55.1403
+    }
+  },
+  {
+    "slug": "emirates-hills",
+    "name": "Emirates Hills",
+    "tagline": "Space to live exceptionally.",
+    "description": "Generous private estates, quiet green streets and golf-course views create a truly peaceful address.",
+    "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
+    "coordinates": {
+      "lat": 25.0664,
+      "lng": 55.1646
+    }
+  },
+  {
+    "slug": "dubai-creek-harbour",
+    "name": "Dubai Creek Harbour",
+    "tagline": "A fresh perspective on Dubai.",
+    "description": "Modern waterfront homes, open promenades and a growing community overlooking the historic Dubai Creek.",
+    "image": "https://images.unsplash.com/photo-1682410601760-6372fd33ad2b?auto=format&fit=crop&w=1800&q=85",
+    "coordinates": {
+      "lat": 25.2068,
+      "lng": 55.345
+    }
+  },
+  {
+    "slug": "business-bay",
+    "name": "Business Bay",
+    "tagline": "Where ambition feels at home.",
+    "description": "A connected urban district with canal-side living, contemporary workspaces and the city within easy reach.",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85",
+    "coordinates": {
+      "lat": 25.185,
+      "lng": 55.261
+    }
+  },
+  {
+    "slug": "jumeirah",
+    "name": "Jumeirah",
+    "tagline": "A slower pace by the sea.",
+    "description": "Leafy residential streets, boutique destinations and beautiful beaches for an effortlessly balanced lifestyle.",
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+    "coordinates": {
+      "lat": 25.204,
+      "lng": 55.236
+    }
+  },
+  {
+    "slug": "dubai-hills-estate",
+    "name": "Dubai Hills Estate",
+    "tagline": "Room to grow, naturally.",
+    "description": "Park-side homes, family-friendly amenities and green spaces in a thoughtfully planned neighbourhood.",
+    "image": "https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1200&q=85",
+    "coordinates": {
+      "lat": 25.112,
+      "lng": 55.257
+    }
+  }
+]

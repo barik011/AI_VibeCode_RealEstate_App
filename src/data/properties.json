@@ -1,0 +1,942 @@
+[
+  {
+    "id": 1,
+    "slug": "palm-jumeirah-villa",
+    "title": "Palm Jumeirah Villa",
+    "category": "villa",
+    "purpose": "buy",
+    "location": "Palm Jumeirah",
+    "locationSlug": "palm-jumeirah",
+    "city": "Dubai",
+    "price": 28000000,
+    "currency": "AED",
+    "bedrooms": 5,
+    "bathrooms": 6,
+    "area": 8200,
+    "areaUnit": "sq ft",
+    "featured": true,
+    "offPlan": false,
+    "createdAt": "2026-09-26",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10240",
+    "images": [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.1124,
+      "lng": 55.139
+    },
+    "description": "Discover a considered way of living at Palm Jumeirah Villa. Set within Palm Jumeirah, this thoughtfully arranged villa brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 2,
+    "slug": "downtown-luxury-apartment",
+    "title": "Downtown Luxury Apartment",
+    "category": "apartment",
+    "purpose": "buy",
+    "location": "Downtown Dubai",
+    "locationSlug": "downtown-dubai",
+    "city": "Dubai",
+    "price": 6800000,
+    "currency": "AED",
+    "bedrooms": 3,
+    "bathrooms": 4,
+    "area": 2150,
+    "areaUnit": "sq ft",
+    "featured": true,
+    "offPlan": false,
+    "createdAt": "2026-09-25",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10241",
+    "images": [
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.1972,
+      "lng": 55.2744
+    },
+    "description": "Discover a considered way of living at Downtown Luxury Apartment. Set within Downtown Dubai, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 3,
+    "slug": "waterfront-residence",
+    "title": "Waterfront Residence",
+    "category": "pentbayt",
+    "purpose": "buy",
+    "location": "Dubai Marina",
+    "locationSlug": "dubai-marina",
+    "city": "Dubai",
+    "price": 12500000,
+    "currency": "AED",
+    "bedrooms": 4,
+    "bathrooms": 5,
+    "area": 3900,
+    "areaUnit": "sq ft",
+    "featured": true,
+    "offPlan": false,
+    "createdAt": "2026-09-24",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10242",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.0805,
+      "lng": 55.1403
+    },
+    "description": "Discover a considered way of living at Waterfront Residence. Set within Dubai Marina, this thoughtfully arranged pentbayt brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 4,
+    "slug": "emirates-signature-estate",
+    "title": "Emirates Signature Estate",
+    "category": "villa",
+    "purpose": "buy",
+    "location": "Emirates Hills",
+    "locationSlug": "emirates-hills",
+    "city": "Dubai",
+    "price": 42000000,
+    "currency": "AED",
+    "bedrooms": 6,
+    "bathrooms": 7,
+    "area": 12000,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-23",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10243",
+    "images": [
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.0664,
+      "lng": 55.1646
+    },
+    "description": "Discover a considered way of living at Emirates Signature Estate. Set within Emirates Hills, this thoughtfully arranged villa brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 5,
+    "slug": "creekside-horizon",
+    "title": "Creekside Horizon",
+    "category": "apartment",
+    "purpose": "off-plan",
+    "location": "Dubai Creek Harbour",
+    "locationSlug": "dubai-creek-harbour",
+    "city": "Dubai",
+    "price": 2400000,
+    "currency": "AED",
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "area": 1450,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": true,
+    "createdAt": "2026-09-22",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10244",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.2068,
+      "lng": 55.345
+    },
+    "description": "Discover a considered way of living at Creekside Horizon. Set within Dubai Creek Harbour, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 6,
+    "slug": "marina-vista-apartment",
+    "title": "Marina Vista Apartment",
+    "category": "apartment",
+    "purpose": "rent",
+    "location": "Dubai Marina",
+    "locationSlug": "dubai-marina",
+    "city": "Dubai",
+    "price": 180000,
+    "currency": "AED",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": 1350,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-21",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10245",
+    "images": [
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.0805,
+      "lng": 55.1403
+    },
+    "description": "Discover a considered way of living at Marina Vista Apartment. Set within Dubai Marina, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 7,
+    "slug": "the-park-townbayt",
+    "title": "The Park Townbayt",
+    "category": "townbayt",
+    "purpose": "buy",
+    "location": "Dubai Hills Estate",
+    "locationSlug": "dubai-hills-estate",
+    "city": "Dubai",
+    "price": 4200000,
+    "currency": "AED",
+    "bedrooms": 4,
+    "bathrooms": 4,
+    "area": 3100,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-20",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10246",
+    "images": [
+      "https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.112,
+      "lng": 55.257
+    },
+    "description": "Discover a considered way of living at The Park Townbayt. Set within Dubai Hills Estate, this thoughtfully arranged townbayt brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 8,
+    "slug": "canal-view-workspace",
+    "title": "Canal View Workspace",
+    "category": "commercial",
+    "purpose": "commercial",
+    "location": "Business Bay",
+    "locationSlug": "business-bay",
+    "city": "Dubai",
+    "price": 3900000,
+    "currency": "AED",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "area": 2400,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-19",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10247",
+    "images": [
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.185,
+      "lng": 55.261
+    },
+    "description": "Discover a considered way of living at Canal View Workspace. Set within Business Bay, this thoughtfully arranged commercial brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Reception",
+      "Meeting rooms",
+      "Covered parking",
+      "24-hour security",
+      "High-speed connectivity",
+      "Canal views"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 9,
+    "slug": "jumeirah-garden-villa",
+    "title": "Jumeirah Garden Villa",
+    "category": "villa",
+    "purpose": "rent",
+    "location": "Jumeirah",
+    "locationSlug": "jumeirah",
+    "city": "Dubai",
+    "price": 480000,
+    "currency": "AED",
+    "bedrooms": 4,
+    "bathrooms": 5,
+    "area": 5600,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-18",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10248",
+    "images": [
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.204,
+      "lng": 55.236
+    },
+    "description": "Discover a considered way of living at Jumeirah Garden Villa. Set within Jumeirah, this thoughtfully arranged villa brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 10,
+    "slug": "palm-sky-pentbayt",
+    "title": "Palm Sky Pentbayt",
+    "category": "pentbayt",
+    "purpose": "buy",
+    "location": "Palm Jumeirah",
+    "locationSlug": "palm-jumeirah",
+    "city": "Dubai",
+    "price": 19500000,
+    "currency": "AED",
+    "bedrooms": 4,
+    "bathrooms": 5,
+    "area": 6200,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-17",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10249",
+    "images": [
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.1124,
+      "lng": 55.139
+    },
+    "description": "Discover a considered way of living at Palm Sky Pentbayt. Set within Palm Jumeirah, this thoughtfully arranged pentbayt brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 11,
+    "slug": "downtown-studio-residence",
+    "title": "Downtown Studio Residence",
+    "category": "apartment",
+    "purpose": "rent",
+    "location": "Downtown Dubai",
+    "locationSlug": "downtown-dubai",
+    "city": "Dubai",
+    "price": 95000,
+    "currency": "AED",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "area": 620,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-16",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10250",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.1972,
+      "lng": 55.2744
+    },
+    "description": "Discover a considered way of living at Downtown Studio Residence. Set within Downtown Dubai, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 12,
+    "slug": "creek-harbour-collection",
+    "title": "Creek Harbour Collection",
+    "category": "apartment",
+    "purpose": "buy",
+    "location": "Dubai Creek Harbour",
+    "locationSlug": "dubai-creek-harbour",
+    "city": "Dubai",
+    "price": 3100000,
+    "currency": "AED",
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "area": 1620,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-15",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10251",
+    "images": [
+      "https://images.unsplash.com/photo-1682410601760-6372fd33ad2b?auto=format&fit=crop&w=1800&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.2068,
+      "lng": 55.345
+    },
+    "description": "Discover a considered way of living at Creek Harbour Collection. Set within Dubai Creek Harbour, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 13,
+    "slug": "hills-park-residences",
+    "title": "Hills Park Residences",
+    "category": "townbayt",
+    "purpose": "off-plan",
+    "location": "Dubai Hills Estate",
+    "locationSlug": "dubai-hills-estate",
+    "city": "Dubai",
+    "price": 3600000,
+    "currency": "AED",
+    "bedrooms": 3,
+    "bathrooms": 4,
+    "area": 2800,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": true,
+    "createdAt": "2026-09-14",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10252",
+    "images": [
+      "https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.112,
+      "lng": 55.257
+    },
+    "description": "Discover a considered way of living at Hills Park Residences. Set within Dubai Hills Estate, this thoughtfully arranged townbayt brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 14,
+    "slug": "marina-panorama",
+    "title": "Marina Panorama",
+    "category": "apartment",
+    "purpose": "buy",
+    "location": "Dubai Marina",
+    "locationSlug": "dubai-marina",
+    "city": "Dubai",
+    "price": 4500000,
+    "currency": "AED",
+    "bedrooms": 3,
+    "bathrooms": 4,
+    "area": 2300,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-13",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10253",
+    "images": [
+      "https://images.unsplash.com/photo-1682410601760-6372fd33ad2b?auto=format&fit=crop&w=1800&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.0805,
+      "lng": 55.1403
+    },
+    "description": "Discover a considered way of living at Marina Panorama. Set within Dubai Marina, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 15,
+    "slug": "business-bay-atelier",
+    "title": "Business Bay Atelier",
+    "category": "commercial",
+    "purpose": "rent",
+    "location": "Business Bay",
+    "locationSlug": "business-bay",
+    "city": "Dubai",
+    "price": 240000,
+    "currency": "AED",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "area": 1850,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-12",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10254",
+    "images": [
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.185,
+      "lng": 55.261
+    },
+    "description": "Discover a considered way of living at Business Bay Atelier. Set within Business Bay, this thoughtfully arranged commercial brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Reception",
+      "Meeting rooms",
+      "Covered parking",
+      "24-hour security",
+      "High-speed connectivity",
+      "Canal views"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 16,
+    "slug": "jumeirah-beach-residence",
+    "title": "Jumeirah Beach Residence",
+    "category": "apartment",
+    "purpose": "buy",
+    "location": "Jumeirah",
+    "locationSlug": "jumeirah",
+    "city": "Dubai",
+    "price": 5200000,
+    "currency": "AED",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area": 2400,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-11",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10255",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.204,
+      "lng": 55.236
+    },
+    "description": "Discover a considered way of living at Jumeirah Beach Residence. Set within Jumeirah, this thoughtfully arranged apartment brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 17,
+    "slug": "palm-ocean-collection",
+    "title": "Palm Ocean Collection",
+    "category": "villa",
+    "purpose": "off-plan",
+    "location": "Palm Jumeirah",
+    "locationSlug": "palm-jumeirah",
+    "city": "Dubai",
+    "price": 22000000,
+    "currency": "AED",
+    "bedrooms": 5,
+    "bathrooms": 6,
+    "area": 7600,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": true,
+    "createdAt": "2026-09-10",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10256",
+    "images": [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.1124,
+      "lng": 55.139
+    },
+    "description": "Discover a considered way of living at Palm Ocean Collection. Set within Palm Jumeirah, this thoughtfully arranged villa brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 18,
+    "slug": "emirates-golf-retreat",
+    "title": "Emirates Golf Retreat",
+    "category": "villa",
+    "purpose": "rent",
+    "location": "Emirates Hills",
+    "locationSlug": "emirates-hills",
+    "city": "Dubai",
+    "price": 780000,
+    "currency": "AED",
+    "bedrooms": 5,
+    "bathrooms": 6,
+    "area": 8700,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-09",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10257",
+    "images": [
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.0664,
+      "lng": 55.1646
+    },
+    "description": "Discover a considered way of living at Emirates Golf Retreat. Set within Emirates Hills, this thoughtfully arranged villa brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 19,
+    "slug": "downtown-crown-pentbayt",
+    "title": "Downtown Crown Pentbayt",
+    "category": "pentbayt",
+    "purpose": "buy",
+    "location": "Downtown Dubai",
+    "locationSlug": "downtown-dubai",
+    "city": "Dubai",
+    "price": 24000000,
+    "currency": "AED",
+    "bedrooms": 5,
+    "bathrooms": 6,
+    "area": 7100,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": false,
+    "createdAt": "2026-09-08",
+    "tenure": "Freehold",
+    "furnished": "Fully furnished",
+    "reference": "DH-10258",
+    "images": [
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.1972,
+      "lng": 55.2744
+    },
+    "description": "Discover a considered way of living at Downtown Crown Pentbayt. Set within Downtown Dubai, this thoughtfully arranged pentbayt brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  },
+  {
+    "id": 20,
+    "slug": "creek-horizon-pentbayt",
+    "title": "Creek Horizon Pentbayt",
+    "category": "pentbayt",
+    "purpose": "off-plan",
+    "location": "Dubai Creek Harbour",
+    "locationSlug": "dubai-creek-harbour",
+    "city": "Dubai",
+    "price": 7800000,
+    "currency": "AED",
+    "bedrooms": 4,
+    "bathrooms": 5,
+    "area": 4100,
+    "areaUnit": "sq ft",
+    "featured": false,
+    "offPlan": true,
+    "createdAt": "2026-09-07",
+    "tenure": "Freehold",
+    "furnished": "Unfurnished",
+    "reference": "DH-10259",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "coordinates": {
+      "lat": 25.2068,
+      "lng": 55.345
+    },
+    "description": "Discover a considered way of living at Creek Horizon Pentbayt. Set within Dubai Creek Harbour, this thoughtfully arranged pentbayt brings generous proportions, natural light and refined finishes together. Open living spaces connect effortlessly with inviting private rooms, creating a place equally suited to quiet mornings and memorable evenings.\n\nEnjoy convenient access to the neighbourhood’s dining, leisure and everyday essentials. This illustrative listing is part of our demo collection; availability, specifications and prices are sample data.",
+    "amenities": [
+      "Swimming pool",
+      "Fitness studio",
+      "Covered parking",
+      "24-hour security",
+      "Private balcony",
+      "Concierge"
+    ],
+    "agent": {
+      "name": "Sofia Bennett",
+      "role": "Senior Property Advisor",
+      "languages": "English · Arabic",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85"
+    }
+  }
+]

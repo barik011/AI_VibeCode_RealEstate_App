@@ -1,0 +1,285 @@
+/* Layout edges in styles.css are logical; only language-specific typography,
+   directional artwork and directional icons need overrides here. */
+.language-switch {
+  min-width: 62px;
+  min-height: 36px;
+  padding: 5px 10px;
+  border: 1px solid #ffffff55;
+  border-radius: 22px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.language-switch[lang='ar'] {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+.language-switch:hover {
+  background: #ffffff15;
+}
+html[lang='ar'] {
+  --body: 'Noto Sans Arabic', Tahoma, sans-serif;
+  --heading: 'Noto Naskh Arabic', Georgia, serif;
+  --font-sans: 'Noto Sans Arabic', Tahoma, sans-serif;
+  --font-serif: 'Noto Naskh Arabic', Georgia, serif;
+}
+html[lang='ar'] body {
+  line-height: 1.9;
+}
+html[lang='ar'] :is(h1, h2, h3, h4) {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+html[lang='ar'] .eyebrow {
+  letter-spacing: 0;
+  font-size: 11px;
+}
+html[lang='ar']
+  :is(
+    .logo small,
+    .hero-content .eyebrow,
+    .featured-section .section-heading p,
+    .hero-bottom-right > p,
+    .cta-note,
+    .collection-mark,
+    .blog-card .eyebrow
+  ) {
+  letter-spacing: 0;
+}
+html[lang='ar'] .logo > span {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 29px;
+  line-height: 1.15;
+}
+html[lang='ar'] .logo small {
+  font-family: 'Noto Sans Arabic', sans-serif;
+  font-size: 7px;
+  line-height: 1.5;
+}
+html[lang='ar'] .hero {
+  height: auto;
+  min-height: 760px;
+}
+html[lang='ar'] .hero h1 {
+  line-height: 1.15;
+}
+html[lang='ar'] .hero-content {
+  padding-block-start: 160px;
+  padding-block-end: 45px;
+}
+html[lang='ar'] .hero-description {
+  line-height: 1.8;
+}
+html[lang='ar'] .handwritten {
+  font-family: 'Noto Naskh Arabic', serif;
+  line-height: 1.4;
+}
+html[lang='ar'] .hero-handwritten {
+  transform: rotate(9deg);
+}
+html[lang='ar'] .hero-shade {
+  background:
+    linear-gradient(270deg, #061d30e0 0%, #0b26379c 36%, #10212f18 73%),
+    linear-gradient(0deg, #06212dd9, transparent 45%, #0619253d);
+}
+html[lang='ar'] .hero-stats strong {
+  line-height: 1.4;
+}
+html[lang='ar'] .hero-stats span {
+  font-size: 10px;
+}
+html[lang='ar'] .featured-section .property-card h3 {
+  font-size: clamp(18px, 1.35vw, 24px);
+}
+html[lang='ar'] .property-card-body > p {
+  font-size: 11px;
+}
+html[lang='ar'] .property-facts {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+html[lang='ar'] .property-facts span {
+  font-size: 10px;
+}
+html[lang='ar'] .property-price strong {
+  unicode-bidi: isolate;
+}
+html[lang='ar'] .story-section > div > p {
+  line-height: 1.9;
+}
+html[lang='ar'] .story-image blockquote {
+  line-height: 1.7;
+}
+html[lang='ar'] .category-card h3 {
+  font-size: 20px;
+}
+html[lang='ar'] .category-card p {
+  font-size: 10px;
+}
+html[lang='ar'] .category-card span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+html[lang='ar'] .testimonial-art p {
+  transform: rotate(9deg);
+}
+html[lang='ar'] .location-shade {
+  background: linear-gradient(270deg, #062333f5, #0b253a9e 65%, #102f43f0);
+}
+html[lang='ar'] .benefits-photo {
+  mask-image: linear-gradient(270deg, transparent, #000 50%);
+}
+html[lang='ar'] .final-cta > img {
+  mask-image: linear-gradient(270deg, transparent, #000 45%);
+}
+html[lang='ar'] .page-hero.with-image::after {
+  background: linear-gradient(270deg, #0c2331cb, #0c233150);
+}
+html[dir='rtl'] :is(.lucide-arrow-right, .lucide-arrow-left, .lucide-arrow-up-right) {
+  transform: scaleX(-1);
+}
+html[dir='rtl'] .rotate-90 {
+  transform: rotate(-90deg);
+}
+html[dir='rtl'] .button:hover .lucide-arrow-right,
+html[dir='rtl'] .text-link:hover .lucide-arrow-right {
+  transform: translateX(-3px) scaleX(-1);
+}
+html[dir='rtl'] .search-fields {
+  border-radius: 6px 0 6px 6px;
+}
+html[dir='rtl'] .newsletter > div {
+  border-radius: 25px 4px 4px 25px;
+}
+html[dir='rtl'] .gallery-counter {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+html[lang='ar'] .contact-detail span {
+  overflow-wrap: anywhere;
+}
+input[type='email'],
+input[type='tel'],
+input[readonly] {
+  direction: ltr;
+  text-align: start;
+  unicode-bidi: isolate;
+}
+html[lang='ar'] .modal-heading h2 {
+  font-size: 32px;
+}
+@media (max-width: 1200px) {
+  html[lang='ar'] .header-cta {
+    display: none;
+  }
+  html[lang='ar'] .hero-content {
+    padding-block-start: 145px;
+  }
+  html[lang='ar'] .hero-stats span {
+    font-size: 9px;
+  }
+}
+@media (max-width: 980px) {
+  html[lang='ar'] .hero-handwritten {
+    font-size: 28px;
+  }
+  html[lang='ar'] .hero-content {
+    width: 70%;
+  }
+}
+@media (max-width: 700px) {
+  .site-header {
+    gap: 9px;
+  }
+  .language-switch {
+    min-width: 50px;
+    padding-inline: 7px;
+    font-size: 11px;
+  }
+  .header-actions {
+    gap: 3px;
+  }
+  .logo > span {
+    font-size: 18px;
+  }
+  .logo {
+    gap: 5px;
+  }
+  .logo svg {
+    width: 23px;
+  }
+  html[lang='ar'] .hero-content {
+    width: 100%;
+    padding-block-start: 135px;
+    padding-block-end: 70px;
+  }
+  html[lang='ar'] .hero {
+    min-height: 770px;
+    max-height: none;
+  }
+  html[lang='ar'] .hero h1 {
+    font-size: clamp(43px, 10.6vw, 64px);
+    line-height: 1.25;
+  }
+  html[lang='ar'] .hero-content .eyebrow {
+    font-size: 11px;
+  }
+  html[lang='ar'] .hero-shade {
+    background:
+      linear-gradient(270deg, #061e31df, #0b253954),
+      linear-gradient(0deg, #061e31ed, transparent 80%);
+  }
+  html[lang='ar'] .hero-stats strong {
+    font-size: 23px;
+  }
+  html[lang='ar'] .hero-stats span {
+    font-size: 8px;
+  }
+  html[lang='ar'] .hero-stats > div {
+    padding-inline-start: 9px;
+  }
+  html[lang='ar'] .hero-stats > div:first-child {
+    padding-inline-start: 0;
+  }
+  html[lang='ar'] .featured-section .property-card h3 {
+    font-size: 27px;
+  }
+  html[lang='ar'] .section-heading h2 {
+    font-size: 28px;
+  }
+  html[lang='ar'] .text-link {
+    white-space: normal;
+  }
+  html[lang='ar'] .contact-form .button {
+    white-space: normal;
+  }
+  html[lang='ar'] .property-price strong {
+    font-size: 15px;
+  }
+  html[lang='ar'] .page-hero h1 {
+    font-size: 43px;
+  }
+  html[lang='ar'] .logo > span {
+    font-size: 27px;
+  }
+}
+@media (max-width: 370px) {
+  .site-header {
+    padding-inline: 16px;
+  }
+  .header-actions .icon-button {
+    width: 30px;
+  }
+  .logo > span {
+    font-size: 16px;
+  }
+  .logo small {
+    font-size: 4.6px;
+  }
+  html[lang='ar'] .hero-stats span {
+    font-size: 7px;
+  }
+  html[lang='ar'] .section-heading h2 {
+    font-size: 25px;
+  }
+}
