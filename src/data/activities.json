@@ -1,0 +1,898 @@
+[
+  {
+    "id": "ACT-0-created",
+    "leadId": "LEAD-1001",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Property Detail.",
+    "offset": -40,
+    "author": "System"
+  },
+  {
+    "id": "ACT-1-created",
+    "leadId": "LEAD-1002",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Referral.",
+    "offset": -39,
+    "author": "System"
+  },
+  {
+    "id": "ACT-1-assigned",
+    "leadId": "LEAD-1002",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -38,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-1-status",
+    "leadId": "LEAD-1002",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to assigned.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-2-created",
+    "leadId": "LEAD-1003",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Phone.",
+    "offset": -38,
+    "author": "System"
+  },
+  {
+    "id": "ACT-2-assigned",
+    "leadId": "LEAD-1003",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Omar Hassan.",
+    "offset": -37,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-2-status",
+    "leadId": "LEAD-1003",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to contacted.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-3-created",
+    "leadId": "LEAD-1004",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Website Inquiry.",
+    "offset": -37,
+    "author": "System"
+  },
+  {
+    "id": "ACT-3-assigned",
+    "leadId": "LEAD-1004",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": -36,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-3-status",
+    "leadId": "LEAD-1004",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to qualified.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-4-created",
+    "leadId": "LEAD-1005",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from WhatsApp.",
+    "offset": -36,
+    "author": "System"
+  },
+  {
+    "id": "ACT-4-assigned",
+    "leadId": "LEAD-1005",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Rohan Mehta.",
+    "offset": -35,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-4-status",
+    "leadId": "LEAD-1005",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to follow up.",
+    "offset": -4,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-5-created",
+    "leadId": "LEAD-1006",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Contact Form.",
+    "offset": -35,
+    "author": "System"
+  },
+  {
+    "id": "ACT-5-assigned",
+    "leadId": "LEAD-1006",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Layla Mansour.",
+    "offset": -34,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-5-status",
+    "leadId": "LEAD-1006",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing scheduled.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-6-created",
+    "leadId": "LEAD-1007",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Social Media.",
+    "offset": -34,
+    "author": "System"
+  },
+  {
+    "id": "ACT-6-assigned",
+    "leadId": "LEAD-1007",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to James Mitchell.",
+    "offset": -33,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-6-status",
+    "leadId": "LEAD-1007",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing completed.",
+    "offset": 0,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-7-created",
+    "leadId": "LEAD-1008",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Walk-In.",
+    "offset": -33,
+    "author": "System"
+  },
+  {
+    "id": "ACT-7-assigned",
+    "leadId": "LEAD-1008",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -32,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-7-status",
+    "leadId": "LEAD-1008",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to negotiation.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-8-created",
+    "leadId": "LEAD-1009",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Other.",
+    "offset": -32,
+    "author": "System"
+  },
+  {
+    "id": "ACT-8-assigned",
+    "leadId": "LEAD-1009",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Omar Hassan.",
+    "offset": -31,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-8-status",
+    "leadId": "LEAD-1009",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to won.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-9-created",
+    "leadId": "LEAD-1010",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Property Detail.",
+    "offset": -31,
+    "author": "System"
+  },
+  {
+    "id": "ACT-9-assigned",
+    "leadId": "LEAD-1010",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": -30,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-9-status",
+    "leadId": "LEAD-1010",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to lost.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-10-created",
+    "leadId": "LEAD-1011",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Referral.",
+    "offset": -30,
+    "author": "System"
+  },
+  {
+    "id": "ACT-11-created",
+    "leadId": "LEAD-1012",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Phone.",
+    "offset": -29,
+    "author": "System"
+  },
+  {
+    "id": "ACT-11-assigned",
+    "leadId": "LEAD-1012",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Layla Mansour.",
+    "offset": -28,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-11-status",
+    "leadId": "LEAD-1012",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to assigned.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-12-created",
+    "leadId": "LEAD-1013",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Website Inquiry.",
+    "offset": -28,
+    "author": "System"
+  },
+  {
+    "id": "ACT-12-assigned",
+    "leadId": "LEAD-1013",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to James Mitchell.",
+    "offset": -27,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-12-status",
+    "leadId": "LEAD-1013",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to contacted.",
+    "offset": 0,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-13-created",
+    "leadId": "LEAD-1014",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from WhatsApp.",
+    "offset": -27,
+    "author": "System"
+  },
+  {
+    "id": "ACT-13-assigned",
+    "leadId": "LEAD-1014",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -26,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-13-status",
+    "leadId": "LEAD-1014",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to qualified.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-14-created",
+    "leadId": "LEAD-1015",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Contact Form.",
+    "offset": -26,
+    "author": "System"
+  },
+  {
+    "id": "ACT-14-assigned",
+    "leadId": "LEAD-1015",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Omar Hassan.",
+    "offset": -25,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-14-status",
+    "leadId": "LEAD-1015",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to follow up.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-15-created",
+    "leadId": "LEAD-1016",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Social Media.",
+    "offset": -25,
+    "author": "System"
+  },
+  {
+    "id": "ACT-15-assigned",
+    "leadId": "LEAD-1016",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": -24,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-15-status",
+    "leadId": "LEAD-1016",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing scheduled.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-16-created",
+    "leadId": "LEAD-1017",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Walk-In.",
+    "offset": -24,
+    "author": "System"
+  },
+  {
+    "id": "ACT-16-assigned",
+    "leadId": "LEAD-1017",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Rohan Mehta.",
+    "offset": -23,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-16-status",
+    "leadId": "LEAD-1017",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing completed.",
+    "offset": -4,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-17-created",
+    "leadId": "LEAD-1018",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Other.",
+    "offset": -23,
+    "author": "System"
+  },
+  {
+    "id": "ACT-17-assigned",
+    "leadId": "LEAD-1018",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Layla Mansour.",
+    "offset": -22,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-17-status",
+    "leadId": "LEAD-1018",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to negotiation.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-18-created",
+    "leadId": "LEAD-1019",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Property Detail.",
+    "offset": -22,
+    "author": "System"
+  },
+  {
+    "id": "ACT-18-assigned",
+    "leadId": "LEAD-1019",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to James Mitchell.",
+    "offset": -21,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-18-status",
+    "leadId": "LEAD-1019",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to won.",
+    "offset": 0,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-19-created",
+    "leadId": "LEAD-1020",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Referral.",
+    "offset": -21,
+    "author": "System"
+  },
+  {
+    "id": "ACT-19-assigned",
+    "leadId": "LEAD-1020",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -20,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-19-status",
+    "leadId": "LEAD-1020",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to lost.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-20-created",
+    "leadId": "LEAD-1021",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Phone.",
+    "offset": -20,
+    "author": "System"
+  },
+  {
+    "id": "ACT-21-created",
+    "leadId": "LEAD-1022",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Website Inquiry.",
+    "offset": -19,
+    "author": "System"
+  },
+  {
+    "id": "ACT-21-assigned",
+    "leadId": "LEAD-1022",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": -18,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-21-status",
+    "leadId": "LEAD-1022",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to assigned.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-22-created",
+    "leadId": "LEAD-1023",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from WhatsApp.",
+    "offset": -18,
+    "author": "System"
+  },
+  {
+    "id": "ACT-22-assigned",
+    "leadId": "LEAD-1023",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Rohan Mehta.",
+    "offset": -17,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-22-status",
+    "leadId": "LEAD-1023",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to contacted.",
+    "offset": -4,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-23-created",
+    "leadId": "LEAD-1024",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Contact Form.",
+    "offset": -17,
+    "author": "System"
+  },
+  {
+    "id": "ACT-23-assigned",
+    "leadId": "LEAD-1024",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Layla Mansour.",
+    "offset": -16,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-23-status",
+    "leadId": "LEAD-1024",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to qualified.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-24-created",
+    "leadId": "LEAD-1025",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Social Media.",
+    "offset": -16,
+    "author": "System"
+  },
+  {
+    "id": "ACT-24-assigned",
+    "leadId": "LEAD-1025",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to James Mitchell.",
+    "offset": -15,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-24-status",
+    "leadId": "LEAD-1025",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to follow up.",
+    "offset": 0,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-25-created",
+    "leadId": "LEAD-1026",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Walk-In.",
+    "offset": -15,
+    "author": "System"
+  },
+  {
+    "id": "ACT-25-assigned",
+    "leadId": "LEAD-1026",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -14,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-25-status",
+    "leadId": "LEAD-1026",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing scheduled.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-26-created",
+    "leadId": "LEAD-1027",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Other.",
+    "offset": -14,
+    "author": "System"
+  },
+  {
+    "id": "ACT-26-assigned",
+    "leadId": "LEAD-1027",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Omar Hassan.",
+    "offset": -13,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-26-status",
+    "leadId": "LEAD-1027",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing completed.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-27-created",
+    "leadId": "LEAD-1028",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Property Detail.",
+    "offset": -13,
+    "author": "System"
+  },
+  {
+    "id": "ACT-27-assigned",
+    "leadId": "LEAD-1028",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": -12,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-27-status",
+    "leadId": "LEAD-1028",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to negotiation.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-28-created",
+    "leadId": "LEAD-1029",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Referral.",
+    "offset": -12,
+    "author": "System"
+  },
+  {
+    "id": "ACT-28-assigned",
+    "leadId": "LEAD-1029",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Rohan Mehta.",
+    "offset": -11,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-28-status",
+    "leadId": "LEAD-1029",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to won.",
+    "offset": -4,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-29-created",
+    "leadId": "LEAD-1030",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Phone.",
+    "offset": -11,
+    "author": "System"
+  },
+  {
+    "id": "ACT-29-assigned",
+    "leadId": "LEAD-1030",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Layla Mansour.",
+    "offset": -10,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-29-status",
+    "leadId": "LEAD-1030",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to lost.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-30-created",
+    "leadId": "LEAD-1031",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Website Inquiry.",
+    "offset": -10,
+    "author": "System"
+  },
+  {
+    "id": "ACT-31-created",
+    "leadId": "LEAD-1032",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from WhatsApp.",
+    "offset": -9,
+    "author": "System"
+  },
+  {
+    "id": "ACT-31-assigned",
+    "leadId": "LEAD-1032",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -8,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-31-status",
+    "leadId": "LEAD-1032",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to assigned.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-32-created",
+    "leadId": "LEAD-1033",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Contact Form.",
+    "offset": -8,
+    "author": "System"
+  },
+  {
+    "id": "ACT-32-assigned",
+    "leadId": "LEAD-1033",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Omar Hassan.",
+    "offset": -7,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-32-status",
+    "leadId": "LEAD-1033",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to contacted.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-33-created",
+    "leadId": "LEAD-1034",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Social Media.",
+    "offset": -7,
+    "author": "System"
+  },
+  {
+    "id": "ACT-33-assigned",
+    "leadId": "LEAD-1034",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": -6,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-33-status",
+    "leadId": "LEAD-1034",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to qualified.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-34-created",
+    "leadId": "LEAD-1035",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Walk-In.",
+    "offset": -6,
+    "author": "System"
+  },
+  {
+    "id": "ACT-34-assigned",
+    "leadId": "LEAD-1035",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Rohan Mehta.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-34-status",
+    "leadId": "LEAD-1035",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to follow up.",
+    "offset": -4,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-35-created",
+    "leadId": "LEAD-1036",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Other.",
+    "offset": -5,
+    "author": "System"
+  },
+  {
+    "id": "ACT-35-assigned",
+    "leadId": "LEAD-1036",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Layla Mansour.",
+    "offset": -4,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-35-status",
+    "leadId": "LEAD-1036",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing scheduled.",
+    "offset": -5,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-36-created",
+    "leadId": "LEAD-1037",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Property Detail.",
+    "offset": -4,
+    "author": "System"
+  },
+  {
+    "id": "ACT-36-assigned",
+    "leadId": "LEAD-1037",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to James Mitchell.",
+    "offset": -3,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-36-status",
+    "leadId": "LEAD-1037",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to viewing completed.",
+    "offset": 0,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-37-created",
+    "leadId": "LEAD-1038",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Referral.",
+    "offset": -3,
+    "author": "System"
+  },
+  {
+    "id": "ACT-37-assigned",
+    "leadId": "LEAD-1038",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sarah Ahmed.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-37-status",
+    "leadId": "LEAD-1038",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to negotiation.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-38-created",
+    "leadId": "LEAD-1039",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Phone.",
+    "offset": -2,
+    "author": "System"
+  },
+  {
+    "id": "ACT-38-assigned",
+    "leadId": "LEAD-1039",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Omar Hassan.",
+    "offset": -1,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-38-status",
+    "leadId": "LEAD-1039",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to won.",
+    "offset": -2,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-39-created",
+    "leadId": "LEAD-1040",
+    "type": "LEAD_CREATED",
+    "message": "Lead created from Website Inquiry.",
+    "offset": -1,
+    "author": "System"
+  },
+  {
+    "id": "ACT-39-assigned",
+    "leadId": "LEAD-1040",
+    "type": "AGENT_ASSIGNED",
+    "message": "Assigned to Sofia Bennett.",
+    "offset": 0,
+    "author": "Demo Admin"
+  },
+  {
+    "id": "ACT-39-status",
+    "leadId": "LEAD-1040",
+    "type": "STATUS_CHANGED",
+    "message": "Lead moved to lost.",
+    "offset": -3,
+    "author": "Demo Admin"
+  }
+]

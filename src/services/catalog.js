@@ -4,10 +4,13 @@ import categories from '../data/categories.json';
 import articles from '../data/blog.json';
 import testimonials from '../data/testimonials.json';
 import { translate, normalizeSearch } from '../i18n/translate';
+import { crmService } from './crmService';
 
 const collections = { properties, locations, categories, articles, testimonials };
 export const catalogService = {
   async getCollection(name) {
+    if (name === 'properties')
+      return (await crmService.getSnapshot()).properties.filter((p) => p.status === 'ACTIVE');
     if (!collections[name]) throw new Error('Collection unavailable');
     return collections[name];
   },

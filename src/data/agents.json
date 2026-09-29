@@ -1,0 +1,104 @@
+[
+  {
+    "id": "agent-1",
+    "name": "Sarah Ahmed",
+    "email": "agent@dubaihouse.demo",
+    "phone": "+971 50 555 0100",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85",
+    "specialization": "Luxury Villas",
+    "locations": [
+      "Palm Jumeirah",
+      "Dubai Hills Estate"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": "agent-2",
+    "name": "Omar Hassan",
+    "email": "omar@dubaihouse.demo",
+    "phone": "+971 50 555 0101",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85",
+    "specialization": "Off-Plan",
+    "locations": [
+      "Downtown Dubai",
+      "Business Bay"
+    ],
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": "agent-3",
+    "name": "Sofia Bennett",
+    "email": "sofia@dubaihouse.demo",
+    "phone": "+971 50 555 0102",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85",
+    "specialization": "Apartments",
+    "locations": [
+      "Dubai Marina",
+      "Jumeirah"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": "agent-4",
+    "name": "Rohan Mehta",
+    "email": "rohan@dubaihouse.demo",
+    "phone": "+971 50 555 0103",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85",
+    "specialization": "Investment Properties",
+    "locations": [
+      "Emirates Hills",
+      "Palm Jumeirah"
+    ],
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": "agent-5",
+    "name": "Layla Mansour",
+    "email": "layla@dubaihouse.demo",
+    "phone": "+971 50 555 0104",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85",
+    "specialization": "Commercial",
+    "locations": [
+      "Dubai Creek Harbour",
+      "Downtown Dubai"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": "agent-6",
+    "name": "James Mitchell",
+    "email": "james@dubaihouse.demo",
+    "phone": "+971 50 555 0105",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=85",
+    "specialization": "Waterfront Homes",
+    "locations": [
+      "Dubai Marina",
+      "Dubai Creek Harbour"
+    ],
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "status": "ACTIVE"
+  }
+]

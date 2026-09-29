@@ -7,6 +7,7 @@ import { CatalogProvider } from './hooks/useCatalog';
 import App from './App';
 import './styles.css';
 import './i18n/rtl.css';
+import './features/crm/crm.css';
 import { LanguageProvider } from './i18n/LanguageProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

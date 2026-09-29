@@ -5,6 +5,32 @@ import { useCatalog } from './hooks/useCatalog';
 import Layout from './components/layout/Layout';
 import { EmptyState, Loader, ToastProvider } from './components/ui';
 import { useLanguage } from './i18n/LanguageProvider';
+import { ProtectedRoute, RoleGuard } from './features/auth/Guards';
+const authPage = (name) =>
+  lazy(() => import('./features/auth/Auth').then((m) => ({ default: m[name] })));
+const crmPage = (file, name) =>
+  lazy(() => import(`./features/crm/pages/${file}.jsx`).then((m) => ({ default: m[name] })));
+const AuthLayout = authPage('AuthLayout');
+const Login = authPage('Login');
+const ForgotPassword = authPage('ForgotPassword');
+const AdminLayout = lazy(() =>
+  import('./features/crm/components/CRMLayout').then((m) => ({ default: m.AdminLayout })),
+);
+const AgentLayout = lazy(() =>
+  import('./features/crm/components/CRMLayout').then((m) => ({ default: m.AgentLayout })),
+);
+const Dashboard = crmPage('Dashboard', 'Dashboard');
+const Reports = crmPage('Dashboard', 'Reports');
+const Leads = crmPage('Leads', 'Leads');
+const LeadDetail = crmPage('Leads', 'LeadDetail');
+const Tasks = crmPage('Work', 'Tasks');
+const Viewings = crmPage('Work', 'Viewings');
+const Calendar = crmPage('Work', 'Calendar');
+const CRMProperties = crmPage('Properties', 'Properties');
+const Agents = crmPage('Agents', 'Agents');
+const AgentDetail = crmPage('Agents', 'AgentDetail');
+const Profile = crmPage('Agents', 'Profile');
+const Settings = crmPage('Settings', 'Settings');
 const Home = lazy(() => import('./pages/Home'));
 const Properties = lazy(() => import('./pages/Properties'));
 const PropertyDetails = lazy(() => import('./pages/PropertyDetails'));
@@ -70,6 +96,41 @@ export default function App() {
         <ToastProvider>
           <Suspense fallback={<Loader />}>
             <Routes>
+              <Route element={<AuthLayout />}>
+                <Route path="login" element={<Login />} />
+                <Route path="forgot-password" element={<ForgotPassword />} />
+              </Route>
+              <Route element={<ProtectedRoute />}>
+                <Route element={<RoleGuard role="ADMIN" />}>
+                  <Route path="admin" element={<AdminLayout />}>
+                    <Route index element={<Navigate to="dashboard" replace />} />
+                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="leads" element={<Leads />} />
+                    <Route path="leads/:id" element={<LeadDetail />} />
+                    <Route path="properties" element={<CRMProperties />} />
+                    <Route path="agents" element={<Agents />} />
+                    <Route path="agents/:id" element={<AgentDetail />} />
+                    <Route path="viewings" element={<Viewings />} />
+                    <Route path="tasks" element={<Tasks />} />
+                    <Route path="reports" element={<Reports />} />
+                    <Route path="settings" element={<Settings />} />
+                    <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
+                  </Route>
+                </Route>
+                <Route element={<RoleGuard role="AGENT" />}>
+                  <Route path="agent" element={<AgentLayout />}>
+                    <Route index element={<Navigate to="dashboard" replace />} />
+                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="leads" element={<Leads />} />
+                    <Route path="leads/:id" element={<LeadDetail />} />
+                    <Route path="tasks" element={<Tasks />} />
+                    <Route path="viewings" element={<Viewings />} />
+                    <Route path="calendar" element={<Calendar />} />
+                    <Route path="profile" element={<Profile />} />
+                    <Route path="*" element={<Navigate to="/agent/dashboard" replace />} />
+                  </Route>
+                </Route>
+              </Route>
               <Route element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path="properties" element={<Properties />} />

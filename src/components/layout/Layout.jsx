@@ -218,6 +218,7 @@ export default function Layout() {
               </Link>
             ))}
           <Link to="/favorites">{t('Saved properties')}</Link>
+          <Link to="/login">{t('Agent & admin login')}</Link>
         </div>
         <div className="footer-column">
           <h3>{t('Properties')}</h3>

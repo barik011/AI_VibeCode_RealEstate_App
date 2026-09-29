@@ -1,0 +1,1034 @@
+[
+  {
+    "id": "LEAD-1001",
+    "customer": {
+      "name": "Ahmed Khan",
+      "email": "ahmed.khan@example.com",
+      "phone": "+971 50 600 0000",
+      "country": "UAE"
+    },
+    "propertyId": 1,
+    "purpose": "buy",
+    "budget": {
+      "min": 22400000,
+      "max": 28000000
+    },
+    "preferredLocation": "Palm Jumeirah",
+    "preferredContact": "Call",
+    "source": "Property Detail",
+    "status": "NEW",
+    "priority": "MEDIUM",
+    "assignedAgentId": null,
+    "createdOffset": -40,
+    "updatedOffset": 0,
+    "assignedOffset": -39,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1002",
+    "customer": {
+      "name": "Amelia Ross",
+      "email": "amelia.ross@example.com",
+      "phone": "+971 50 600 0001",
+      "country": "United Kingdom"
+    },
+    "propertyId": 2,
+    "purpose": "buy",
+    "budget": {
+      "min": 5440000,
+      "max": 6800000
+    },
+    "preferredLocation": "Downtown Dubai",
+    "preferredContact": "Email",
+    "source": "Referral",
+    "status": "ASSIGNED",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -39,
+    "updatedOffset": -1,
+    "assignedOffset": -38,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1003",
+    "customer": {
+      "name": "Daniel Cooper",
+      "email": "daniel.cooper@example.com",
+      "phone": "+971 50 600 0002",
+      "country": "India"
+    },
+    "propertyId": 3,
+    "purpose": "buy",
+    "budget": {
+      "min": 10000000,
+      "max": 12500000
+    },
+    "preferredLocation": "Dubai Marina",
+    "preferredContact": "WhatsApp",
+    "source": "Phone",
+    "status": "CONTACTED",
+    "priority": "LOW",
+    "assignedAgentId": "agent-2",
+    "createdOffset": -38,
+    "updatedOffset": -2,
+    "assignedOffset": -37,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1004",
+    "customer": {
+      "name": "Fatima Ali",
+      "email": "fatima.ali@example.com",
+      "phone": "+971 50 600 0003",
+      "country": "France"
+    },
+    "propertyId": 4,
+    "purpose": "buy",
+    "budget": {
+      "min": 33600000,
+      "max": 42000000
+    },
+    "preferredLocation": "Emirates Hills",
+    "preferredContact": "Call",
+    "source": "Website Inquiry",
+    "status": "QUALIFIED",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -37,
+    "updatedOffset": -3,
+    "assignedOffset": -36,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1005",
+    "customer": {
+      "name": "James Carter",
+      "email": "james.carter@example.com",
+      "phone": "+971 50 600 0004",
+      "country": "UAE"
+    },
+    "propertyId": 5,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 1920000,
+      "max": 2400000
+    },
+    "preferredLocation": "Dubai Creek Harbour",
+    "preferredContact": "Email",
+    "source": "WhatsApp",
+    "status": "FOLLOW_UP",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-4",
+    "createdOffset": -36,
+    "updatedOffset": -4,
+    "assignedOffset": -35,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1006",
+    "customer": {
+      "name": "Priya Sharma",
+      "email": "priya.sharma@example.com",
+      "phone": "+971 50 600 0005",
+      "country": "United Kingdom"
+    },
+    "propertyId": 6,
+    "purpose": "rent",
+    "budget": {
+      "min": 144000,
+      "max": 180000
+    },
+    "preferredLocation": "Dubai Marina",
+    "preferredContact": "WhatsApp",
+    "source": "Contact Form",
+    "status": "VIEWING_SCHEDULED",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-5",
+    "createdOffset": -35,
+    "updatedOffset": -5,
+    "assignedOffset": -34,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1007",
+    "customer": {
+      "name": "Yusuf Rahman",
+      "email": "yusuf.rahman@example.com",
+      "phone": "+971 50 600 0006",
+      "country": "India"
+    },
+    "propertyId": 7,
+    "purpose": "buy",
+    "budget": {
+      "min": 3360000,
+      "max": 4200000
+    },
+    "preferredLocation": "Dubai Hills Estate",
+    "preferredContact": "Call",
+    "source": "Social Media",
+    "status": "VIEWING_COMPLETED",
+    "priority": "LOW",
+    "assignedAgentId": "agent-6",
+    "createdOffset": -34,
+    "updatedOffset": 0,
+    "assignedOffset": -33,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1008",
+    "customer": {
+      "name": "Elena Petrova",
+      "email": "elena.petrova@example.com",
+      "phone": "+971 50 600 0007",
+      "country": "France"
+    },
+    "propertyId": 8,
+    "purpose": "commercial",
+    "budget": {
+      "min": 3120000,
+      "max": 3900000
+    },
+    "preferredLocation": "Business Bay",
+    "preferredContact": "Email",
+    "source": "Walk-In",
+    "status": "NEGOTIATION",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -33,
+    "updatedOffset": -1,
+    "assignedOffset": -32,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1009",
+    "customer": {
+      "name": "Noor Haddad",
+      "email": "noor.haddad@example.com",
+      "phone": "+971 50 600 0008",
+      "country": "UAE"
+    },
+    "propertyId": 9,
+    "purpose": "rent",
+    "budget": {
+      "min": 384000,
+      "max": 480000
+    },
+    "preferredLocation": "Jumeirah",
+    "preferredContact": "WhatsApp",
+    "source": "Other",
+    "status": "WON",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-2",
+    "createdOffset": -32,
+    "updatedOffset": -2,
+    "assignedOffset": -31,
+    "nextFollowUp": null,
+    "deal": {
+      "propertyId": 9,
+      "value": 460800,
+      "closingOffset": 0,
+      "notes": "Terms agreed and demo deal closed."
+    }
+  },
+  {
+    "id": "LEAD-1010",
+    "customer": {
+      "name": "Oliver Chen",
+      "email": "oliver.chen@example.com",
+      "phone": "+971 50 600 0009",
+      "country": "United Kingdom"
+    },
+    "propertyId": 10,
+    "purpose": "buy",
+    "budget": {
+      "min": 15600000,
+      "max": 19500000
+    },
+    "preferredLocation": "Palm Jumeirah",
+    "preferredContact": "Call",
+    "source": "Property Detail",
+    "status": "LOST",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -31,
+    "updatedOffset": -3,
+    "assignedOffset": -30,
+    "nextFollowUp": null,
+    "lostReason": "Bought Elsewhere",
+    "lostNotes": "Customer selected another community."
+  },
+  {
+    "id": "LEAD-1011",
+    "customer": {
+      "name": "Maya Kapoor",
+      "email": "maya.kapoor@example.com",
+      "phone": "+971 50 600 0010",
+      "country": "India"
+    },
+    "propertyId": 11,
+    "purpose": "rent",
+    "budget": {
+      "min": 76000,
+      "max": 95000
+    },
+    "preferredLocation": "Downtown Dubai",
+    "preferredContact": "Email",
+    "source": "Referral",
+    "status": "NEW",
+    "priority": "LOW",
+    "assignedAgentId": null,
+    "createdOffset": -30,
+    "updatedOffset": -4,
+    "assignedOffset": -29,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1012",
+    "customer": {
+      "name": "Thomas Wilson",
+      "email": "thomas.wilson@example.com",
+      "phone": "+971 50 600 0011",
+      "country": "France"
+    },
+    "propertyId": 12,
+    "purpose": "buy",
+    "budget": {
+      "min": 2480000,
+      "max": 3100000
+    },
+    "preferredLocation": "Dubai Creek Harbour",
+    "preferredContact": "WhatsApp",
+    "source": "Phone",
+    "status": "ASSIGNED",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-5",
+    "createdOffset": -29,
+    "updatedOffset": -5,
+    "assignedOffset": -28,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1013",
+    "customer": {
+      "name": "Aisha Malik",
+      "email": "aisha.malik@example.com",
+      "phone": "+971 50 600 0012",
+      "country": "UAE"
+    },
+    "propertyId": 13,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 2880000,
+      "max": 3600000
+    },
+    "preferredLocation": "Dubai Hills Estate",
+    "preferredContact": "Call",
+    "source": "Website Inquiry",
+    "status": "CONTACTED",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-6",
+    "createdOffset": -28,
+    "updatedOffset": 0,
+    "assignedOffset": -27,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1014",
+    "customer": {
+      "name": "Lucas Martin",
+      "email": "lucas.martin@example.com",
+      "phone": "+971 50 600 0013",
+      "country": "United Kingdom"
+    },
+    "propertyId": 14,
+    "purpose": "buy",
+    "budget": {
+      "min": 3600000,
+      "max": 4500000
+    },
+    "preferredLocation": "Dubai Marina",
+    "preferredContact": "Email",
+    "source": "WhatsApp",
+    "status": "QUALIFIED",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -27,
+    "updatedOffset": -1,
+    "assignedOffset": -26,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1015",
+    "customer": {
+      "name": "Zara Siddiqui",
+      "email": "zara.siddiqui@example.com",
+      "phone": "+971 50 600 0014",
+      "country": "India"
+    },
+    "propertyId": 15,
+    "purpose": "rent",
+    "budget": {
+      "min": 192000,
+      "max": 240000
+    },
+    "preferredLocation": "Business Bay",
+    "preferredContact": "WhatsApp",
+    "source": "Contact Form",
+    "status": "FOLLOW_UP",
+    "priority": "LOW",
+    "assignedAgentId": "agent-2",
+    "createdOffset": -26,
+    "updatedOffset": -2,
+    "assignedOffset": -25,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1016",
+    "customer": {
+      "name": "Hassan Ibrahim",
+      "email": "hassan.ibrahim@example.com",
+      "phone": "+971 50 600 0015",
+      "country": "France"
+    },
+    "propertyId": 16,
+    "purpose": "buy",
+    "budget": {
+      "min": 4160000,
+      "max": 5200000
+    },
+    "preferredLocation": "Jumeirah",
+    "preferredContact": "Call",
+    "source": "Social Media",
+    "status": "VIEWING_SCHEDULED",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -25,
+    "updatedOffset": -3,
+    "assignedOffset": -24,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1017",
+    "customer": {
+      "name": "Emma Laurent",
+      "email": "emma.laurent@example.com",
+      "phone": "+971 50 600 0016",
+      "country": "UAE"
+    },
+    "propertyId": 17,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 17600000,
+      "max": 22000000
+    },
+    "preferredLocation": "Palm Jumeirah",
+    "preferredContact": "Email",
+    "source": "Walk-In",
+    "status": "VIEWING_COMPLETED",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-4",
+    "createdOffset": -24,
+    "updatedOffset": -4,
+    "assignedOffset": -23,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1018",
+    "customer": {
+      "name": "Arjun Patel",
+      "email": "arjun.patel@example.com",
+      "phone": "+971 50 600 0017",
+      "country": "United Kingdom"
+    },
+    "propertyId": 18,
+    "purpose": "rent",
+    "budget": {
+      "min": 624000,
+      "max": 780000
+    },
+    "preferredLocation": "Emirates Hills",
+    "preferredContact": "WhatsApp",
+    "source": "Other",
+    "status": "NEGOTIATION",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-5",
+    "createdOffset": -23,
+    "updatedOffset": -5,
+    "assignedOffset": -22,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1019",
+    "customer": {
+      "name": "Sophie Turner",
+      "email": "sophie.turner@example.com",
+      "phone": "+971 50 600 0018",
+      "country": "India"
+    },
+    "propertyId": 19,
+    "purpose": "buy",
+    "budget": {
+      "min": 19200000,
+      "max": 24000000
+    },
+    "preferredLocation": "Downtown Dubai",
+    "preferredContact": "Call",
+    "source": "Property Detail",
+    "status": "WON",
+    "priority": "LOW",
+    "assignedAgentId": "agent-6",
+    "createdOffset": -22,
+    "updatedOffset": 0,
+    "assignedOffset": -21,
+    "nextFollowUp": null,
+    "deal": {
+      "propertyId": 19,
+      "value": 23040000,
+      "closingOffset": -2,
+      "notes": "Terms agreed and demo deal closed."
+    }
+  },
+  {
+    "id": "LEAD-1020",
+    "customer": {
+      "name": "Khalid Nasser",
+      "email": "khalid.nasser@example.com",
+      "phone": "+971 50 600 0019",
+      "country": "France"
+    },
+    "propertyId": 20,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 6240000,
+      "max": 7800000
+    },
+    "preferredLocation": "Dubai Creek Harbour",
+    "preferredContact": "Email",
+    "source": "Referral",
+    "status": "LOST",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -21,
+    "updatedOffset": -1,
+    "assignedOffset": -20,
+    "nextFollowUp": null,
+    "lostReason": "Bought Elsewhere",
+    "lostNotes": "Customer selected another community."
+  },
+  {
+    "id": "LEAD-1021",
+    "customer": {
+      "name": "Isabella Rossi",
+      "email": "isabella.rossi@example.com",
+      "phone": "+971 50 600 0020",
+      "country": "UAE"
+    },
+    "propertyId": 1,
+    "purpose": "buy",
+    "budget": {
+      "min": 22400000,
+      "max": 28000000
+    },
+    "preferredLocation": "Palm Jumeirah",
+    "preferredContact": "WhatsApp",
+    "source": "Phone",
+    "status": "NEW",
+    "priority": "MEDIUM",
+    "assignedAgentId": null,
+    "createdOffset": -20,
+    "updatedOffset": -2,
+    "assignedOffset": -19,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1022",
+    "customer": {
+      "name": "Mohammed Saeed",
+      "email": "mohammed.saeed@example.com",
+      "phone": "+971 50 600 0021",
+      "country": "United Kingdom"
+    },
+    "propertyId": 2,
+    "purpose": "buy",
+    "budget": {
+      "min": 5440000,
+      "max": 6800000
+    },
+    "preferredLocation": "Downtown Dubai",
+    "preferredContact": "Call",
+    "source": "Website Inquiry",
+    "status": "ASSIGNED",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -19,
+    "updatedOffset": -3,
+    "assignedOffset": -18,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1023",
+    "customer": {
+      "name": "Grace Kim",
+      "email": "grace.kim@example.com",
+      "phone": "+971 50 600 0022",
+      "country": "India"
+    },
+    "propertyId": 3,
+    "purpose": "buy",
+    "budget": {
+      "min": 10000000,
+      "max": 12500000
+    },
+    "preferredLocation": "Dubai Marina",
+    "preferredContact": "Email",
+    "source": "WhatsApp",
+    "status": "CONTACTED",
+    "priority": "LOW",
+    "assignedAgentId": "agent-4",
+    "createdOffset": -18,
+    "updatedOffset": -4,
+    "assignedOffset": -17,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1024",
+    "customer": {
+      "name": "Liam Murphy",
+      "email": "liam.murphy@example.com",
+      "phone": "+971 50 600 0023",
+      "country": "France"
+    },
+    "propertyId": 4,
+    "purpose": "buy",
+    "budget": {
+      "min": 33600000,
+      "max": 42000000
+    },
+    "preferredLocation": "Emirates Hills",
+    "preferredContact": "WhatsApp",
+    "source": "Contact Form",
+    "status": "QUALIFIED",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-5",
+    "createdOffset": -17,
+    "updatedOffset": -5,
+    "assignedOffset": -16,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1025",
+    "customer": {
+      "name": "Leila Farouk",
+      "email": "leila.farouk@example.com",
+      "phone": "+971 50 600 0024",
+      "country": "UAE"
+    },
+    "propertyId": 5,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 1920000,
+      "max": 2400000
+    },
+    "preferredLocation": "Dubai Creek Harbour",
+    "preferredContact": "Call",
+    "source": "Social Media",
+    "status": "FOLLOW_UP",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-6",
+    "createdOffset": -16,
+    "updatedOffset": 0,
+    "assignedOffset": -15,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1026",
+    "customer": {
+      "name": "David Park",
+      "email": "david.park@example.com",
+      "phone": "+971 50 600 0025",
+      "country": "United Kingdom"
+    },
+    "propertyId": 6,
+    "purpose": "rent",
+    "budget": {
+      "min": 144000,
+      "max": 180000
+    },
+    "preferredLocation": "Dubai Marina",
+    "preferredContact": "Email",
+    "source": "Walk-In",
+    "status": "VIEWING_SCHEDULED",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -15,
+    "updatedOffset": -1,
+    "assignedOffset": -14,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1027",
+    "customer": {
+      "name": "Ananya Rao",
+      "email": "ananya.rao@example.com",
+      "phone": "+971 50 600 0026",
+      "country": "India"
+    },
+    "propertyId": 7,
+    "purpose": "buy",
+    "budget": {
+      "min": 3360000,
+      "max": 4200000
+    },
+    "preferredLocation": "Dubai Hills Estate",
+    "preferredContact": "WhatsApp",
+    "source": "Other",
+    "status": "VIEWING_COMPLETED",
+    "priority": "LOW",
+    "assignedAgentId": "agent-2",
+    "createdOffset": -14,
+    "updatedOffset": -2,
+    "assignedOffset": -13,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1028",
+    "customer": {
+      "name": "Adam Scott",
+      "email": "adam.scott@example.com",
+      "phone": "+971 50 600 0027",
+      "country": "France"
+    },
+    "propertyId": 8,
+    "purpose": "commercial",
+    "budget": {
+      "min": 3120000,
+      "max": 3900000
+    },
+    "preferredLocation": "Business Bay",
+    "preferredContact": "Call",
+    "source": "Property Detail",
+    "status": "NEGOTIATION",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -13,
+    "updatedOffset": -3,
+    "assignedOffset": -12,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1029",
+    "customer": {
+      "name": "Sara Saleh",
+      "email": "sara.saleh@example.com",
+      "phone": "+971 50 600 0028",
+      "country": "UAE"
+    },
+    "propertyId": 9,
+    "purpose": "rent",
+    "budget": {
+      "min": 384000,
+      "max": 480000
+    },
+    "preferredLocation": "Jumeirah",
+    "preferredContact": "Email",
+    "source": "Referral",
+    "status": "WON",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-4",
+    "createdOffset": -12,
+    "updatedOffset": -4,
+    "assignedOffset": -11,
+    "nextFollowUp": null,
+    "deal": {
+      "propertyId": 9,
+      "value": 460800,
+      "closingOffset": -4,
+      "notes": "Terms agreed and demo deal closed."
+    }
+  },
+  {
+    "id": "LEAD-1030",
+    "customer": {
+      "name": "Benjamin Clark",
+      "email": "benjamin.clark@example.com",
+      "phone": "+971 50 600 0029",
+      "country": "United Kingdom"
+    },
+    "propertyId": 10,
+    "purpose": "buy",
+    "budget": {
+      "min": 15600000,
+      "max": 19500000
+    },
+    "preferredLocation": "Palm Jumeirah",
+    "preferredContact": "WhatsApp",
+    "source": "Phone",
+    "status": "LOST",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-5",
+    "createdOffset": -11,
+    "updatedOffset": -5,
+    "assignedOffset": -10,
+    "nextFollowUp": null,
+    "lostReason": "Bought Elsewhere",
+    "lostNotes": "Customer selected another community."
+  },
+  {
+    "id": "LEAD-1031",
+    "customer": {
+      "name": "Nadia Osman",
+      "email": "nadia.osman@example.com",
+      "phone": "+971 50 600 0030",
+      "country": "India"
+    },
+    "propertyId": 11,
+    "purpose": "rent",
+    "budget": {
+      "min": 76000,
+      "max": 95000
+    },
+    "preferredLocation": "Downtown Dubai",
+    "preferredContact": "Call",
+    "source": "Website Inquiry",
+    "status": "NEW",
+    "priority": "LOW",
+    "assignedAgentId": null,
+    "createdOffset": -10,
+    "updatedOffset": 0,
+    "assignedOffset": -9,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1032",
+    "customer": {
+      "name": "Ryan Lewis",
+      "email": "ryan.lewis@example.com",
+      "phone": "+971 50 600 0031",
+      "country": "France"
+    },
+    "propertyId": 12,
+    "purpose": "buy",
+    "budget": {
+      "min": 2480000,
+      "max": 3100000
+    },
+    "preferredLocation": "Dubai Creek Harbour",
+    "preferredContact": "Email",
+    "source": "WhatsApp",
+    "status": "ASSIGNED",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -9,
+    "updatedOffset": -1,
+    "assignedOffset": -8,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1033",
+    "customer": {
+      "name": "Hana Suzuki",
+      "email": "hana.suzuki@example.com",
+      "phone": "+971 50 600 0032",
+      "country": "UAE"
+    },
+    "propertyId": 13,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 2880000,
+      "max": 3600000
+    },
+    "preferredLocation": "Dubai Hills Estate",
+    "preferredContact": "WhatsApp",
+    "source": "Contact Form",
+    "status": "CONTACTED",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-2",
+    "createdOffset": -8,
+    "updatedOffset": -2,
+    "assignedOffset": -7,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1034",
+    "customer": {
+      "name": "Vikram Shah",
+      "email": "vikram.shah@example.com",
+      "phone": "+971 50 600 0033",
+      "country": "United Kingdom"
+    },
+    "propertyId": 14,
+    "purpose": "buy",
+    "budget": {
+      "min": 3600000,
+      "max": 4500000
+    },
+    "preferredLocation": "Dubai Marina",
+    "preferredContact": "Call",
+    "source": "Social Media",
+    "status": "QUALIFIED",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -7,
+    "updatedOffset": -3,
+    "assignedOffset": -6,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1035",
+    "customer": {
+      "name": "Chloe Evans",
+      "email": "chloe.evans@example.com",
+      "phone": "+971 50 600 0034",
+      "country": "India"
+    },
+    "propertyId": 15,
+    "purpose": "rent",
+    "budget": {
+      "min": 192000,
+      "max": 240000
+    },
+    "preferredLocation": "Business Bay",
+    "preferredContact": "Email",
+    "source": "Walk-In",
+    "status": "FOLLOW_UP",
+    "priority": "LOW",
+    "assignedAgentId": "agent-4",
+    "createdOffset": -6,
+    "updatedOffset": -4,
+    "assignedOffset": -5,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1036",
+    "customer": {
+      "name": "Ali Hamdan",
+      "email": "ali.hamdan@example.com",
+      "phone": "+971 50 600 0035",
+      "country": "France"
+    },
+    "propertyId": 16,
+    "purpose": "buy",
+    "budget": {
+      "min": 4160000,
+      "max": 5200000
+    },
+    "preferredLocation": "Jumeirah",
+    "preferredContact": "WhatsApp",
+    "source": "Other",
+    "status": "VIEWING_SCHEDULED",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-5",
+    "createdOffset": -5,
+    "updatedOffset": -5,
+    "assignedOffset": -4,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1037",
+    "customer": {
+      "name": "Mila Novak",
+      "email": "mila.novak@example.com",
+      "phone": "+971 50 600 0036",
+      "country": "UAE"
+    },
+    "propertyId": 17,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 17600000,
+      "max": 22000000
+    },
+    "preferredLocation": "Palm Jumeirah",
+    "preferredContact": "Call",
+    "source": "Property Detail",
+    "status": "VIEWING_COMPLETED",
+    "priority": "MEDIUM",
+    "assignedAgentId": "agent-6",
+    "createdOffset": -4,
+    "updatedOffset": 0,
+    "assignedOffset": -3,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1038",
+    "customer": {
+      "name": "Ethan Brooks",
+      "email": "ethan.brooks@example.com",
+      "phone": "+971 50 600 0037",
+      "country": "United Kingdom"
+    },
+    "propertyId": 18,
+    "purpose": "rent",
+    "budget": {
+      "min": 624000,
+      "max": 780000
+    },
+    "preferredLocation": "Emirates Hills",
+    "preferredContact": "Email",
+    "source": "Referral",
+    "status": "NEGOTIATION",
+    "priority": "HIGH",
+    "assignedAgentId": "agent-1",
+    "createdOffset": -3,
+    "updatedOffset": -1,
+    "assignedOffset": -2,
+    "nextFollowUp": null
+  },
+  {
+    "id": "LEAD-1039",
+    "customer": {
+      "name": "Rania Khalil",
+      "email": "rania.khalil@example.com",
+      "phone": "+971 50 600 0038",
+      "country": "India"
+    },
+    "propertyId": 19,
+    "purpose": "buy",
+    "budget": {
+      "min": 19200000,
+      "max": 24000000
+    },
+    "preferredLocation": "Downtown Dubai",
+    "preferredContact": "WhatsApp",
+    "source": "Phone",
+    "status": "WON",
+    "priority": "LOW",
+    "assignedAgentId": "agent-2",
+    "createdOffset": -2,
+    "updatedOffset": -2,
+    "assignedOffset": -1,
+    "nextFollowUp": null,
+    "deal": {
+      "propertyId": 19,
+      "value": 23040000,
+      "closingOffset": -6,
+      "notes": "Terms agreed and demo deal closed."
+    }
+  },
+  {
+    "id": "LEAD-1040",
+    "customer": {
+      "name": "Oscar Davis",
+      "email": "oscar.davis@example.com",
+      "phone": "+971 50 600 0039",
+      "country": "France"
+    },
+    "propertyId": 20,
+    "purpose": "off-plan",
+    "budget": {
+      "min": 6240000,
+      "max": 7800000
+    },
+    "preferredLocation": "Dubai Creek Harbour",
+    "preferredContact": "Call",
+    "source": "Website Inquiry",
+    "status": "LOST",
+    "priority": "URGENT",
+    "assignedAgentId": "agent-3",
+    "createdOffset": -1,
+    "updatedOffset": -3,
+    "assignedOffset": 0,
+    "nextFollowUp": null,
+    "lostReason": "Bought Elsewhere",
+    "lostNotes": "Customer selected another community."
+  }
+]

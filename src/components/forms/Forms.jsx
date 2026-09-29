@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useCatalog } from '../../hooks/useCatalog';
 import { storage } from '../../utils/storage';
 import { Button, useToast } from '../ui';
+import { inquiryService } from '../../services/inquiryService';
 export function NewsletterForm() {
   const validation = useFormValidation();
   const { t } = useLanguage();
@@ -51,23 +52,22 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
   const { t } = useLanguage();
   const { locations } = useCatalog();
   const [done, setDone] = useState(false);
-  const [stored, setStored] = useState(true);
+  const [error, setError] = useState('');
+  const [pending, setPending] = useState(false);
   const [messageDraft, setMessageDraft] = useState(null);
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    const saved = storage.get('inquiries', []);
-    setStored(
-      storage.set('inquiries', [
-        ...(Array.isArray(saved) ? saved : []),
-        {
-          ...data,
-          property: property?.slug || null,
-          createdAt: new Date().toISOString(),
-        },
-      ]),
-    );
-    setDone(true);
+    setPending(true);
+    setError('');
+    try {
+      await inquiryService.submit(data, property);
+      setDone(true);
+    } catch (failure) {
+      setError(failure.message);
+    } finally {
+      setPending(false);
+    }
   };
   if (done)
     return (
@@ -75,11 +75,7 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
         <CheckCircle2 size={38} />
         <h3>{t('A new beginning starts here.')}</h3>
         <p>
-          {t(
-            stored
-              ? 'Thank you. Your inquiry has been saved in this browser for the demo.'
-              : 'Thank you. Your inquiry was validated, but browser storage is unavailable.',
-          )}
+          {t('Thank you. Your property inquiry has been received.')}
           {t(' ')}
           {t('No message has been sent to an advisor.')}
         </p>
@@ -156,6 +152,14 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
             ))}
           </select>
         </label>
+        <label>
+          {t('Preferred contact method')}
+          <select name="preferredContact">
+            <option value="Call">{t('Call')}</option>
+            <option value="Email">{t('Email')}</option>
+            <option value="WhatsApp">WhatsApp</option>
+          </select>
+        </label>
         <label className="full-width">
           {t('Budget (AED)')}
           <select name="budget" defaultValue="">
@@ -190,7 +194,10 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
         <input type="checkbox" required />
         {t('I agree to save this inquiry in my browser for this demo.')}
       </label>
-      <Button type="submit">{t('Let’s start a conversation')}</Button>
+      {error && <p role="alert">{t(error)}</p>}
+      <Button type="submit" disabled={pending}>
+        {t('Let’s start a conversation')}
+      </Button>
       <p className="form-note">
         {t('A frontend demonstration. Your details stay in this browser.')}
       </p>

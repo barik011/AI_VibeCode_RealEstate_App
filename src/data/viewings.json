@@ -1,0 +1,156 @@
+[
+  {
+    "id": "VIEW-1001",
+    "leadId": "LEAD-1002",
+    "propertyId": 2,
+    "agentId": "agent-1",
+    "dateOffset": -2,
+    "meetingLocation": "Downtown Dubai reception",
+    "notes": "Meet at the main entrance.",
+    "status": "COMPLETED",
+    "outcome": "Need Follow-Up"
+  },
+  {
+    "id": "VIEW-1002",
+    "leadId": "LEAD-1003",
+    "propertyId": 3,
+    "agentId": "agent-2",
+    "dateOffset": -1,
+    "meetingLocation": "Dubai Marina reception",
+    "notes": "Meet at the main entrance.",
+    "status": "COMPLETED",
+    "outcome": "Need Follow-Up"
+  },
+  {
+    "id": "VIEW-1003",
+    "leadId": "LEAD-1004",
+    "propertyId": 4,
+    "agentId": "agent-3",
+    "dateOffset": 0,
+    "meetingLocation": "Emirates Hills reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1004",
+    "leadId": "LEAD-1005",
+    "propertyId": 5,
+    "agentId": "agent-4",
+    "dateOffset": 1,
+    "meetingLocation": "Dubai Creek Harbour reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1005",
+    "leadId": "LEAD-1006",
+    "propertyId": 6,
+    "agentId": "agent-5",
+    "dateOffset": 2,
+    "meetingLocation": "Dubai Marina reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1006",
+    "leadId": "LEAD-1007",
+    "propertyId": 7,
+    "agentId": "agent-6",
+    "dateOffset": 3,
+    "meetingLocation": "Dubai Hills Estate reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1007",
+    "leadId": "LEAD-1008",
+    "propertyId": 8,
+    "agentId": "agent-1",
+    "dateOffset": 4,
+    "meetingLocation": "Business Bay reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1008",
+    "leadId": "LEAD-1012",
+    "propertyId": 12,
+    "agentId": "agent-5",
+    "dateOffset": 5,
+    "meetingLocation": "Dubai Creek Harbour reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1009",
+    "leadId": "LEAD-1013",
+    "propertyId": 13,
+    "agentId": "agent-6",
+    "dateOffset": -2,
+    "meetingLocation": "Dubai Hills Estate reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1010",
+    "leadId": "LEAD-1014",
+    "propertyId": 14,
+    "agentId": "agent-1",
+    "dateOffset": -1,
+    "meetingLocation": "Dubai Marina reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1011",
+    "leadId": "LEAD-1015",
+    "propertyId": 15,
+    "agentId": "agent-2",
+    "dateOffset": 0,
+    "meetingLocation": "Business Bay reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1012",
+    "leadId": "LEAD-1016",
+    "propertyId": 16,
+    "agentId": "agent-3",
+    "dateOffset": 1,
+    "meetingLocation": "Jumeirah reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1013",
+    "leadId": "LEAD-1017",
+    "propertyId": 17,
+    "agentId": "agent-4",
+    "dateOffset": 2,
+    "meetingLocation": "Palm Jumeirah reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  },
+  {
+    "id": "VIEW-1014",
+    "leadId": "LEAD-1018",
+    "propertyId": 18,
+    "agentId": "agent-5",
+    "dateOffset": 3,
+    "meetingLocation": "Emirates Hills reception",
+    "notes": "Meet at the main entrance.",
+    "status": "SCHEDULED",
+    "outcome": null
+  }
+]
