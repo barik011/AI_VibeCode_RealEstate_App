@@ -1,4 +1,5 @@
 import { useLanguage } from '../../i18n/LanguageProvider';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ArrowUpRight, Bath, BedDouble, Heart, Maximize } from 'lucide-react';
@@ -10,6 +11,7 @@ export function FavoriteButton({ property, className = '' }) {
   const saved = useSelector((state) => state.favorites.ids.includes(property.id));
   const dispatch = useDispatch();
   const notify = useToast();
+  const [pending, setPending] = useState(false);
   return (
     <button
       className={`favorite-button ${saved ? 'saved' : ''} ${className}`}
@@ -19,9 +21,17 @@ export function FavoriteButton({ property, className = '' }) {
         2: saved ? ' from' : ' to',
       })}
       aria-pressed={saved}
-      onClick={() => {
-        dispatch(toggleFavorite(property.id));
-        notify(saved ? 'Property removed from favorites.' : 'Property added to favorites.');
+      disabled={pending}
+      onClick={async () => {
+        setPending(true);
+        try {
+          await dispatch(toggleFavorite(property.id));
+          notify(saved ? 'Property removed from favorites.' : 'Property added to favorites.');
+        } catch (error) {
+          notify(error.message);
+        } finally {
+          setPending(false);
+        }
       }}
     >
       <Heart size={17} fill={saved ? 'currentColor' : 'none'} />

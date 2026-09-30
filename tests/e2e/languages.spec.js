@@ -59,7 +59,7 @@ test('Arabic search, validation, gallery and carousel keyboard behavior', async 
   await page.getByLabel('رسالتك').fill('أرغب في معرفة المزيد عن العقارات المتاحة في دبي.');
   await page.getByRole('checkbox').check();
   await page.getByRole('button', { name: 'لنبدأ الحوار' }).click();
-  await expect(page.locator('.form-success')).toContainText('حُفظ استفسارك');
+  await expect(page.locator('.form-success')).toContainText('تم استلام استفسارك');
   await page.goto('/');
   await page.locator('.testimonials').focus();
   await page.keyboard.press('ArrowLeft');

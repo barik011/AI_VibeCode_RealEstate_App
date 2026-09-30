@@ -400,9 +400,14 @@
   "Please check this field.": "يرجى التحقق من هذا الحقل.",
   "Please enter at least {0} characters.": "يرجى إدخال {0} أحرف على الأقل.",
   "Please accept before continuing.": "يرجى الموافقة قبل المتابعة.",
-  "Agent & admin login": "???? ??????? ????????",
-  "Thank you. Your property inquiry has been received.": "????? ??. ?? ?????? ???????? ?? ??????.",
-  "Preferred contact method": "????? ??????? ???????",
-  "Call": "??????",
-  "Email": "???? ????????"
+  "Agent & admin login": "دخول الوكلاء والإدارة",
+  "Thank you. Your property inquiry has been received.": "شكراً لك. تم استلام استفسارك عن العقار.",
+  "Preferred contact method": "طريقة التواصل المفضلة",
+  "Call": "مكالمة",
+  "Email": "بريد إلكتروني",
+  "WhatsApp": "واتساب",
+  "Your newsletter preference has been saved.": "تم حفظ تفضيلات النشرة البريدية.",
+  "Our team can now review your inquiry.": "يمكن لفريقنا الآن مراجعة استفسارك.",
+  "I agree to share these details with the property advisory team.": "أوافق على مشاركة هذه التفاصيل مع فريق الاستشارات العقارية.",
+  "Your inquiry is saved securely for our advisory team.": "يتم حفظ استفسارك بأمان لفريقنا الاستشاري."
 }

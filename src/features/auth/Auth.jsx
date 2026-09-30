@@ -7,6 +7,7 @@ import { sessionChanged } from '../crm/store';
 import { homeFor } from '../crm/constants';
 import { Button, Field } from '../crm/components/UI';
 import '../crm/crm.css';
+import { isSupabase } from '../../services/supabase/client';
 export function AuthLayout() {
   return (
     <div className="crm crm-auth" lang="en" dir="ltr">
@@ -60,7 +61,7 @@ export function Login() {
       <Link to="/" className="crm-back">
         <ArrowLeft size={16} /> Back to properties
       </Link>
-      <span className="crm-demo">Demo Mode</span>
+      <span className="crm-demo">{isSupabase ? 'Supabase workspace' : 'Demo Mode'}</span>
       <h1>Welcome back.</h1>
       <p>Sign in to your real estate workspace.</p>
       <form
@@ -86,9 +87,11 @@ export function Login() {
           autoComplete="current-password"
         />
         <div className="crm-between">
-          <label className="crm-check">
-            <input name="remember" type="checkbox" /> Remember me
-          </label>
+          {!isSupabase && (
+            <label className="crm-check">
+              <input name="remember" type="checkbox" /> Remember me
+            </label>
+          )}
           <Link to="/forgot-password">Forgot password?</Link>
         </div>
         {error && (
@@ -100,54 +103,137 @@ export function Login() {
           Sign in
         </Button>
       </form>
-      <div className="crm-demo-accounts">
-        <h3>Explore the demo</h3>
-        <Button
-          secondary
-          disabled={pending}
-          onClick={() => login({ email: 'admin@dubaihouse.demo', password: 'Demo123!' })}
-        >
-          Demo Admin Login
-        </Button>
-        <Button
-          secondary
-          disabled={pending}
-          onClick={() => login({ email: 'agent@dubaihouse.demo', password: 'Demo123!' })}
-        >
-          Demo Agent Login
-        </Button>
-        <p>
-          admin@dubaihouse.demo
-          <br />
-          agent@dubaihouse.demo
-          <br />
-          Password: <code>Demo123!</code>
-        </p>
-      </div>
+      {!isSupabase && (
+        <div className="crm-demo-accounts">
+          <h3>Explore the demo</h3>
+          <Button
+            secondary
+            disabled={pending}
+            onClick={() => login({ email: 'admin@dubaihouse.demo', password: 'Demo123!' })}
+          >
+            Demo Admin Login
+          </Button>
+          <Button
+            secondary
+            disabled={pending}
+            onClick={() => login({ email: 'agent@dubaihouse.demo', password: 'Demo123!' })}
+          >
+            Demo Agent Login
+          </Button>
+          <p>
+            admin@dubaihouse.demo
+            <br />
+            agent@dubaihouse.demo
+            <br />
+            Password: <code>Demo123!</code>
+          </p>
+        </div>
+      )}
       <p className="crm-muted">
-        Frontend demo authentication only. Data stays in this browser; these accounts do not provide
-        production security.
+        {isSupabase
+          ? 'Sign in with your invited team account. Your role controls access to the shared workspace.'
+          : 'Frontend demo authentication only. Data stays in this browser; these accounts do not provide production security.'}
       </p>
     </div>
   );
 }
 export function ForgotPassword() {
   const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [pending, setPending] = useState(false);
   return (
     <div className="crm-login">
       <h1>Password help</h1>
-      <p>Use either demo account with the password Demo123!.</p>
+      <p>
+        {isSupabase
+          ? 'Enter your team email to request a password reset link.'
+          : 'Use either demo account with the password Demo123!.'}
+      </p>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          setMessage(await authService.requestPasswordReset());
+          const email = new FormData(e.currentTarget).get('email');
+          setPending(true);
+          setError('');
+          try {
+            setMessage(await authService.requestPasswordReset(email));
+          } catch (failure) {
+            setError(failure.message);
+          } finally {
+            setPending(false);
+          }
         }}
       >
         <Field label="Email" name="email" type="email" required />
-        <Button type="submit">Show reset instructions</Button>
+        <Button type="submit" disabled={pending}>
+          {isSupabase ? 'Send reset link' : 'Show reset instructions'}
+        </Button>
       </form>
+      {error && (
+        <p role="alert" className="crm-error">
+          {error}
+        </p>
+      )}
       {message && <p role="status">{message}</p>}
       <Link to="/login">Back to login</Link>
+    </div>
+  );
+}
+export function ResetPassword() {
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [pending, setPending] = useState(false);
+  return (
+    <div className="crm-login">
+      <h1>Set your password</h1>
+      <p>Open this page using your invitation or password reset link.</p>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const fields = Object.fromEntries(new FormData(e.currentTarget));
+          setError('');
+          if (fields.password !== fields.confirm) {
+            setError('Passwords do not match.');
+            return;
+          }
+          setPending(true);
+          try {
+            await authService.updatePassword(fields.password);
+            setMessage('Your password has been updated. You can now sign in.');
+          } catch (failure) {
+            setError(failure.message);
+          } finally {
+            setPending(false);
+          }
+        }}
+      >
+        <Field
+          label="New password"
+          name="password"
+          type="password"
+          autoComplete="new-password"
+          minLength={12}
+          required
+        />
+        <Field
+          label="Confirm password"
+          name="confirm"
+          type="password"
+          autoComplete="new-password"
+          minLength={12}
+          required
+        />
+        {error && (
+          <p className="crm-error" role="alert">
+            {error}
+          </p>
+        )}
+        <Button type="submit" disabled={pending || !isSupabase}>
+          Save password
+        </Button>
+      </form>
+      {message && <p role="status">{message}</p>}
+      <Link to="/login">Sign in</Link>
     </div>
   );
 }

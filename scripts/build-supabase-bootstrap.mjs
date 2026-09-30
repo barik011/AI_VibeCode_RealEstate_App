@@ -1,0 +1,14 @@
+import { readFileSync,readdirSync,writeFileSync } from 'node:fs';
+import { createSeed } from '../src/repositories/seed.js';
+const quote=(value) => `'${JSON.stringify(value).replaceAll("'","''")}'::jsonb`;
+const migrations=readdirSync('supabase/migrations').filter((f) => f.endsWith('.sql')).sort();
+let result='-- Run once in the Supabase SQL Editor for an empty project. Contains sample data only; no secrets.\n';
+for(const file of migrations) result+=`\n-- ${file}\n${readFileSync(`supabase/migrations/${file}`,'utf8')}\n`;
+result+='\nbegin;\nset local request.jwt.claims = \'{"role":"service_role"}\';\n';
+result+=`select public.import_crm_data(${quote(createSeed())});\n`;
+for(const [kind,file] of Object.entries({locations:'locations',categories:'categories',articles:'blog',testimonials:'testimonials',site:'site'})) result+=`insert into public.public_content(kind,data) values ('${kind}',${quote(JSON.parse(readFileSync(`src/data/${file}.json`,'utf8')))}) on conflict do nothing;\n`;
+result+='create table if not exists app_private.schema_migrations(version text primary key, applied_at timestamptz not null default now());\n';
+for(const file of migrations) result+=`insert into app_private.schema_migrations(version) values ('${file}') on conflict do nothing;\n`;
+result+='commit;\n';
+writeFileSync('supabase/bootstrap.sql',result);
+console.log(`Created supabase/bootstrap.sql (${Math.round(result.length/1024)} KB).`);

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { catalogService } from '../services/catalog';
 import { crmService } from '../services/crmService';
+import { updateSiteConfig } from '../config/siteConfig';
 const CatalogContext = createContext(null);
 export function CatalogProvider({ children }) {
   const [state, setState] = useState({ loading: true, error: null });
@@ -13,9 +14,10 @@ export function CatalogProvider({ children }) {
           properties: data.properties.filter((p) => p.status === 'ACTIVE'),
         }));
     });
-    const names = ['properties', 'locations', 'categories', 'articles', 'testimonials'];
+    const names = ['properties', 'locations', 'categories', 'articles', 'testimonials', 'site'];
     Promise.all(names.map((name) => catalogService.getCollection(name)))
       .then((values) => {
+        updateSiteConfig(values[names.indexOf('site')]);
         if (active)
           setState({
             ...Object.fromEntries(names.map((name, i) => [name, values[i]])),

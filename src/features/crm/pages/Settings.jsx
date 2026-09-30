@@ -5,9 +5,13 @@ import { STAGES } from '../constants';
 import { Badge, Button, Field, FormDialog, PageHeading, Panel, useCommand } from '../components/UI';
 import { crmService } from '../../../services/crmService';
 import { useToast } from '../../../components/ui';
+import { isSupabase } from '../../../services/supabase/client';
+import { migrationService } from '../../../services/migrationService';
 export function Settings() {
   const data = useSelector(selectWorkspace);
   const [reset, setReset] = useState(false);
+  const [importing, setImporting] = useState(false);
+  const localData = migrationService.preview();
   const [error, setError] = useState('');
   const run = useCommand();
   const toast = useToast();
@@ -15,7 +19,11 @@ export function Settings() {
     <>
       <PageHeading
         title="Workspace settings"
-        subtitle="Company details, workflow preferences and demo controls."
+        subtitle={
+          isSupabase
+            ? 'Company details, workflow preferences and data migration.'
+            : 'Company details, workflow preferences and demo controls.'
+        }
       />
       <div className="crm-two-column">
         <Panel title="Company profile & preferences">
@@ -70,7 +78,7 @@ export function Settings() {
         <div className="crm-stack">
           <Panel title="Lead stages">
             <p className="crm-pad crm-muted">
-              Stages are fixed for this demo to keep workflow rules consistent.
+              Stages follow the shared sales workflow to keep records consistent.
             </p>
             <div className="crm-stage-list">
               {STAGES.map((s) => (
@@ -78,22 +86,42 @@ export function Settings() {
               ))}
             </div>
           </Panel>
-          <Panel title="Demo data">
-            <div className="crm-pad">
-              <p>
-                Restore the original 40 leads, 6 agents, 28 tasks, 14 viewings and 20 properties.
-                This removes CRM changes and inquiries from this browser’s CRM. Public favorites and
-                language preferences are preserved.
-              </p>
-              <Button danger onClick={() => setReset(true)}>
-                Reset Demo Data
-              </Button>
-            </div>
-          </Panel>
+          {isSupabase ? (
+            <Panel title="Import browser data">
+              <div className="crm-pad">
+                <p>
+                  {localData
+                    ? `${localData.counts.leads} local leads, ${localData.counts.properties} properties, ${localData.counts.tasks} tasks, ${localData.counts.viewings} viewings and ${localData.counts.newsletter} newsletter subscriptions found.`
+                    : 'No previous local CRM or inquiry data was found in this browser.'}
+                </p>
+                <p>
+                  Import browser records into Supabase. You can preserve matching remote records or
+                  explicitly apply your local edits. Your local copy remains available.
+                </p>
+                <Button disabled={!localData} onClick={() => setImporting(true)}>
+                  Import local records
+                </Button>
+              </div>
+            </Panel>
+          ) : (
+            <Panel title="Demo data">
+              <div className="crm-pad">
+                <p>
+                  Restore the original 40 leads, 6 agents, 28 tasks, 14 viewings and 20 properties.
+                  This removes CRM changes and inquiries from this browser’s CRM. Public favorites
+                  and language preferences are preserved.
+                </p>
+                <Button danger onClick={() => setReset(true)}>
+                  Reset Demo Data
+                </Button>
+              </div>
+            </Panel>
+          )}
           <Panel title="About this workspace">
             <p className="crm-pad">
-              Demo Mode uses browser-local repositories. Authentication and route guards are
-              demonstration controls. No Supabase connection or real messaging is enabled.
+              {isSupabase
+                ? 'Records are stored in Supabase. Database policies enforce team roles and assignment access. Communication actions record conversations; they do not send messages.'
+                : 'Demo Mode uses browser-local repositories. Authentication and route guards are demonstration controls. No Supabase connection or real messaging is enabled.'}
             </p>
           </Panel>
         </div>
@@ -114,6 +142,29 @@ export function Settings() {
           </p>
           <label className="crm-check">
             <input type="checkbox" required /> I understand and want to reset the CRM.
+          </label>
+        </FormDialog>
+      )}
+      {importing && (
+        <FormDialog
+          title="Import local CRM records?"
+          submitLabel="Import records"
+          onClose={() => setImporting(false)}
+          onSubmit={async (fields) => {
+            await migrationService.import(fields.overwrite === 'on');
+            toast('Local records imported.');
+          }}
+        >
+          <p>
+            This imports records from this browser into the shared database. Matching IDs are
+            skipped unless you choose to apply local edits. Local data is retained as a backup.
+          </p>
+          <label className="crm-check">
+            <input name="overwrite" type="checkbox" /> Apply local edits to matching records. This
+            replaces their current database values.
+          </label>
+          <label className="crm-check">
+            <input type="checkbox" required /> I have reviewed the record counts and want to import.
           </label>
         </FormDialog>
       )}

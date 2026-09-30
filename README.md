@@ -1,6 +1,12 @@
 # Dubai Property Portal + CRM
 
-A functional Dubai property portal and real-estate sales CRM, extending the existing Dubai bayt luxury website. The public portal retains its design, routes, property catalog, English/Arabic support, animations, search and favorites. Separate agent and admin workspaces demonstrate the complete inquiry-to-outcome workflow. All records are local demo content; there is no backend connection.
+A functional Dubai property portal and real-estate sales CRM, extending the existing Dubai bayt luxury website. The public portal retains its design, routes, property catalog, English/Arabic support, animations, search and favorites. Separate agent and admin workspaces demonstrate the complete inquiry-to-outcome workflow. The app supports both a shared Supabase database and an offline mock mode. Seed listings and CRM records are demonstration content.
+
+## Supabase integration
+
+See [SUPABASE_SETUP.md](SUPABASE_SETUP.md) for configuration, database migrations, seed import, role policies, real account provisioning, browser-data import and verification. Connected mode uses Supabase Auth, PostgreSQL and Realtime. The seed data is imported through server-only scripts; no secret key is exposed to the browser. The setup document distinguishes code readiness from applying migrations to the hosted project.
+
+The sections describing demo accounts and local persistence below apply only when `VITE_DATA_BACKEND=mock`. In Supabase mode the demo shortcuts and database reset are disabled.
 
 ## Run locally
 
@@ -68,7 +74,7 @@ Motion handles section reveals, hero text and testimonial fades. The hero uses a
 
 ## Demo storage
 
-Favorites, newsletter preferences, inquiries and CRM records stay in the current browser. The application never sends form submissions to a server. Admin Settings provides a confirmed CRM demo reset. Forms report when storage is unavailable. Social URLs are configurable platform placeholders; contact details are deliberately non-operational.
+In mock mode, favorites, newsletter preferences, inquiries and CRM records stay in the current browser, and form submissions are not sent to a server. In Supabase mode, these records are stored in the shared database. Admin Settings provides a confirmed CRM reset only in mock mode. Social URLs are configurable platform placeholders; contact details are deliberately non-operational.
 
 Photography is served from Unsplash and typography from Google Fonts; those resources require network access. A local SVG fallback handles failed images. Fonts fall back to Georgia and sans-serif.
 
@@ -76,15 +82,15 @@ Location photography includes [Dubai Marina by Jhonwayne Pumaras](https://unspla
 
 ## CRM architecture and routes
 
-The existing React, Vite, JavaScript/JSX, Tailwind CSS, React Router, Redux Toolkit, Motion and Lucide stack is preserved. No extra runtime dependency was needed. Charts use accessible data-driven CSS bars.
+The existing React, Vite, JavaScript/JSX, Tailwind CSS, React Router, Redux Toolkit, Motion and Lucide stack is preserved. The Supabase JavaScript client adds the connected backend adapter. Charts use accessible data-driven CSS bars.
 
 | Area           | Routes                                                                                                                                                                                                         |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Authentication | `/login`, `/forgot-password`                                                                                                                                                                                   |
+| Authentication | `/login`, `/forgot-password`, `/reset-password`                                                                                                                                                                |
 | Admin          | `/admin` (redirect), `/admin/dashboard`, `/admin/leads`, `/admin/leads/:id`, `/admin/properties`, `/admin/agents`, `/admin/agents/:id`, `/admin/viewings`, `/admin/tasks`, `/admin/reports`, `/admin/settings` |
 | Agent          | `/agent` (redirect), `/agent/dashboard`, `/agent/leads`, `/agent/leads/:id`, `/agent/tasks`, `/agent/viewings`, `/agent/calendar`, `/agent/profile`                                                            |
 
-PublicLayout (the original Layout component), AuthLayout, AgentLayout and AdminLayout have separate visual structures. CRM pages are English; the public site's persisted English/Arabic preference is preserved. The CRM explicitly uses left-to-right English layout.
+PublicLayout (wrapping the original Layout component), AuthLayout, AgentLayout and AdminLayout have separate visual structures. CRM pages are English; the public site's persisted English/Arabic preference is preserved. The CRM explicitly uses left-to-right English layout.
 
 ### Demo accounts
 
@@ -150,9 +156,9 @@ src/services/               auth, CRM workflow, inquiry and catalog adapters
 
 Admin ? Settings ? Reset Demo Data ? check the confirmation ? Reset Demo Data. This replaces the CRM snapshot, including property edits and inquiry leads, with the original seed. Public favorites, language, newsletter preferences and the legacy inquiry archive remain intact. Records are stored under `dubai-bayt:crm-v1`; the original inquiry archive remains under `dubai-bayt:inquiries` for compatibility. Demo data is local to each browser, not shared between devices.
 
-### Future Supabase integration
+### Supabase integration
 
-See [SUPABASE_INTEGRATION_PLAN.md](SUPABASE_INTEGRATION_PLAN.md) for tables/columns, relationships, ID migration, Auth, RLS, Storage, repository replacement, environment variables, migration sequencing and Realtime. No credentials are requested or required. UI components contain no Supabase-specific code.
+See [SUPABASE_INTEGRATION_PLAN.md](SUPABASE_INTEGRATION_PLAN.md) for tables/columns, relationships, ID migration, Auth, RLS, Storage, repository replacement, environment variables, migration sequencing and Realtime. That document records the original design; [SUPABASE_SETUP.md](SUPABASE_SETUP.md) describes the implemented adapter, SQL migrations and setup. The offline mode still works without credentials.
 
 ## Verification
 

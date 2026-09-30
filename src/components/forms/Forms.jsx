@@ -2,7 +2,8 @@ import { useLanguage, useFormValidation } from '../../i18n/LanguageProvider';
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useCatalog } from '../../hooks/useCatalog';
-import { storage } from '../../utils/storage';
+import { visitorService } from '../../services/visitorService';
+import { isSupabase } from '../../services/supabase/client';
 import { Button, useToast } from '../ui';
 import { inquiryService } from '../../services/inquiryService';
 export function NewsletterForm() {
@@ -11,15 +12,23 @@ export function NewsletterForm() {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
   const notify = useToast();
-  const submit = (e) => {
+  const [pending, setPending] = useState(false);
+  const submit = async (e) => {
     e.preventDefault();
-    const saved = storage.set('newsletter', email);
-    setDone(true);
-    notify(
-      saved
-        ? 'Your newsletter preference is saved in this demo.'
-        : 'Preference received for this session. Browser storage is unavailable.',
-    );
+    setPending(true);
+    try {
+      await visitorService.subscribe(email);
+      setDone(true);
+      notify(
+        isSupabase
+          ? 'Your newsletter preference has been saved.'
+          : 'Your newsletter preference is saved in this demo.',
+      );
+    } catch (error) {
+      notify(error.message);
+    } finally {
+      setPending(false);
+    }
   };
   return (
     <form className="newsletter" onSubmit={submit} {...validation}>
@@ -39,11 +48,19 @@ export function NewsletterForm() {
             setDone(false);
           }}
         />
-        <button aria-label={t('Subscribe to newsletter')}>
+        <button disabled={pending} aria-label={t('Subscribe to newsletter')}>
           {done ? <CheckCircle2 size={19} /> : <ArrowRight size={20} />}
         </button>
       </div>
-      {done && <small role="status">{t('Saved locally. No emails are sent in this demo.')}</small>}
+      {done && (
+        <small role="status">
+          {t(
+            isSupabase
+              ? 'Your newsletter preference has been saved.'
+              : 'Saved locally. No emails are sent in this demo.',
+          )}
+        </small>
+      )}
     </form>
   );
 }
@@ -77,7 +94,11 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
         <p>
           {t('Thank you. Your property inquiry has been received.')}
           {t(' ')}
-          {t('No message has been sent to an advisor.')}
+          {t(
+            isSupabase
+              ? 'Our team can now review your inquiry.'
+              : 'No message has been sent to an advisor.',
+          )}
         </p>
         <Button onClick={() => setDone(false)} arrow={false}>
           {t('Make another inquiry')}
@@ -157,7 +178,7 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
           <select name="preferredContact">
             <option value="Call">{t('Call')}</option>
             <option value="Email">{t('Email')}</option>
-            <option value="WhatsApp">WhatsApp</option>
+            <option value="WhatsApp">{t('WhatsApp')}</option>
           </select>
         </label>
         <label className="full-width">
@@ -192,14 +213,22 @@ export function ContactForm({ property, expert = false, preferredLocation = '' }
       </div>
       <label className="checkbox-label">
         <input type="checkbox" required />
-        {t('I agree to save this inquiry in my browser for this demo.')}
+        {t(
+          isSupabase
+            ? 'I agree to share these details with the property advisory team.'
+            : 'I agree to save this inquiry in my browser for this demo.',
+        )}
       </label>
       {error && <p role="alert">{t(error)}</p>}
       <Button type="submit" disabled={pending}>
         {t('Let’s start a conversation')}
       </Button>
       <p className="form-note">
-        {t('A frontend demonstration. Your details stay in this browser.')}
+        {t(
+          isSupabase
+            ? 'Your inquiry is saved securely for our advisory team.'
+            : 'A frontend demonstration. Your details stay in this browser.',
+        )}
       </p>
     </form>
   );

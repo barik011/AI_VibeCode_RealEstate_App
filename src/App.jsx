@@ -13,6 +13,7 @@ const crmPage = (file, name) =>
 const AuthLayout = authPage('AuthLayout');
 const Login = authPage('Login');
 const ForgotPassword = authPage('ForgotPassword');
+const ResetPassword = authPage('ResetPassword');
 const AdminLayout = lazy(() =>
   import('./features/crm/components/CRMLayout').then((m) => ({ default: m.AdminLayout })),
 );
@@ -75,21 +76,21 @@ function CategoryRoute() {
     <NotFound />
   );
 }
-export default function App() {
+function PublicLayout() {
   const { t } = useLanguage();
   const { loading, error } = useCatalog();
   if (loading) return <Loader />;
   if (error)
     return (
-      <EmptyState
-        title="Our collection is temporarily unavailable."
-        text="Please refresh to try again."
-      >
+      <EmptyState title="Our collection is temporarily unavailable." text={error}>
         <button className="button" onClick={() => window.location.reload()}>
           {t('Try again')}
         </button>
       </EmptyState>
     );
+  return <Layout />;
+}
+export default function App() {
   return (
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">
@@ -99,6 +100,7 @@ export default function App() {
               <Route element={<AuthLayout />}>
                 <Route path="login" element={<Login />} />
                 <Route path="forgot-password" element={<ForgotPassword />} />
+                <Route path="reset-password" element={<ResetPassword />} />
               </Route>
               <Route element={<ProtectedRoute />}>
                 <Route element={<RoleGuard role="ADMIN" />}>
@@ -131,7 +133,7 @@ export default function App() {
                   </Route>
                 </Route>
               </Route>
-              <Route element={<Layout />}>
+              <Route element={<PublicLayout />}>
                 <Route index element={<Home />} />
                 <Route path="properties" element={<Properties />} />
                 <Route path="category/:slug" element={<CategoryRoute />} />

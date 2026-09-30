@@ -17,9 +17,21 @@ import {
   useCommand,
 } from '../components/UI';
 function PropertyForm({ property, onClose }) {
-  const { locations, categories } = useCatalog();
+  const { locations = [], categories = [], loading, error } = useCatalog();
   const run = useCommand();
   const [imageText, setImageText] = useState(property?.images.join('\n') || '');
+  if (loading || error)
+    return (
+      <FormDialog
+        title="Property catalog"
+        onClose={onClose}
+        onSubmit={() => {
+          throw new Error(error || 'Catalog is still loading.');
+        }}
+      >
+        <p>{error || 'Loading locations and categories…'}</p>
+      </FormDialog>
+    );
   return (
     <FormDialog
       title={property ? 'Edit property' : 'Add property'}

@@ -1,6 +1,6 @@
 # Future Supabase integration
 
-This is a migration plan only. The application currently runs entirely with local mock repositories. No Supabase SDK, connection, environment variables or credentials are required or configured.
+This document records the original migration design. The Supabase adapter, SQL migrations, authentication, database workflow functions, Realtime subscriptions and import scripts are now implemented. See [SUPABASE_SETUP.md](SUPABASE_SETUP.md) for the actual schema and setup. Hosted-project migration status must be verified separately. The implementation preserves existing text CRM IDs rather than converting them to UUID columns, and retains per-browser visitor tokens for anonymous favorites.
 
 ## Replaceable boundaries
 

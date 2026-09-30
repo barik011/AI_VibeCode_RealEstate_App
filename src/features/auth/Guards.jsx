@@ -4,7 +4,14 @@ import { selectUser } from '../crm/store';
 import { homeFor } from '../crm/constants';
 export function ProtectedRoute() {
   const user = useSelector(selectUser);
+  const loading = useSelector((state) => state.auth.loading);
   const location = useLocation();
+  if (loading)
+    return (
+      <div className="crm-skeleton" role="status">
+        Restoring your session…
+      </div>
+    );
   return user ? <Outlet /> : <Navigate to="/login" state={{ from: location.pathname }} replace />;
 }
 export function RoleGuard({ role }) {

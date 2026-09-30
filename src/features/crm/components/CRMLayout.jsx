@@ -29,6 +29,7 @@ import { authService } from '../../../services/authService';
 import { isAdmin, label, dateTime } from '../constants';
 import { Button, Dialog, EmptyState, useCommand } from './UI';
 import '../crm.css';
+import { isSupabase } from '../../../services/supabase/client';
 const adminNav = [
   ['dashboard', 'Dashboard', LayoutDashboard],
   ['leads', 'Leads', Users],
@@ -192,9 +193,13 @@ export function CRMLayout({ admin = false }) {
           </div>
           <span
             className="crm-demo"
-            title="This portfolio version uses local demo data. Backend integration is prepared for Supabase."
+            title={
+              isSupabase
+                ? 'Connected to your shared Supabase database.'
+                : 'This portfolio version uses local demo data. Backend integration is prepared for Supabase.'
+            }
           >
-            Demo Mode
+            {isSupabase ? 'Supabase' : 'Demo Mode'}
           </span>
           <button
             className="crm-icon crm-bell"
@@ -226,10 +231,14 @@ export function CRMLayout({ admin = false }) {
               <div className="crm-user-menu">
                 <Link to={admin ? '/admin/settings' : '/agent/profile'}>My workspace</Link>
                 <button
-                  onClick={() => {
-                    authService.signOut();
-                    dispatch(sessionChanged(null));
-                    navigate('/login');
+                  onClick={async () => {
+                    try {
+                      await authService.signOut();
+                      dispatch(sessionChanged(null));
+                      navigate('/login');
+                    } catch (failure) {
+                      setError(failure.message);
+                    }
                   }}
                 >
                   <LogOut size={16} /> Sign out
@@ -268,7 +277,11 @@ export function CRMLayout({ admin = false }) {
           )}
         </main>
         <footer className="crm-footer">
-          Dubai House CRM <span>Local demo · Times shown in your browser’s timezone</span>
+          Dubai House CRM{' '}
+          <span>
+            {isSupabase ? 'Shared workspace' : 'Local demo'} · Times shown in your browser’s
+            timezone
+          </span>
         </footer>
       </div>
       {drawer && (

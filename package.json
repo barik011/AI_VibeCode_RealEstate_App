@@ -9,10 +9,19 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test --test-concurrency=1 tests/*.test.js",
     "test:translations": "node scripts/check-translations.mjs",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "supabase:status": "node scripts/supabase-status.mjs",
+    "supabase:migrate": "node scripts/supabase-migrate.mjs",
+    "supabase:seed": "node scripts/supabase-seed.mjs",
+    "supabase:bootstrap": "node scripts/build-supabase-bootstrap.mjs",
+    "supabase:invite": "node scripts/supabase-invite.mjs",
+    "supabase:configure-auth": "node scripts/supabase-configure-auth.mjs",
+    "supabase:provision-admin": "node scripts/supabase-provision-admin.mjs",
+    "supabase:smoke": "node scripts/supabase-smoke.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
+    "@supabase/supabase-js": "^2.117.2",
     "@tailwindcss/vite": "^4.3.3",
     "lucide-react": "^1.48.0",
     "motion": "^13.4.4",
@@ -25,9 +34,11 @@
   "devDependencies": {
     "@babel/parser": "^8.0.6",
     "@babel/traverse": "^8.0.6",
+    "@electric-sql/pglite": "^0.5.8",
     "@playwright/test": "^1.63.0",
     "@vitejs/plugin-react": "^6.1.1",
     "prettier": "^3.9.9",
+    "supabase": "^2.118.0",
     "vite": "^8.3.1"
   }
 }

@@ -16,10 +16,17 @@ const empty = {
 };
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: { user: authService.getSession() },
+  initialState: { user: authService.getSession(), loading: true, error: null },
   reducers: {
     sessionChanged: (state, { payload }) => {
       state.user = payload;
+      state.loading = false;
+      state.error = null;
+    },
+    authFailed: (state, { payload }) => {
+      state.user = null;
+      state.loading = false;
+      state.error = payload;
     },
   },
 });
@@ -28,6 +35,7 @@ export const crmSlice = createSlice({
   initialState: { ...empty, loading: true, error: null },
   reducers: {
     snapshotReceived: (state, { payload }) => ({ ...payload, loading: false, error: null }),
+    sessionReset: () => ({ ...empty, loading: true, error: null }),
     loadFailed: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
@@ -47,9 +55,24 @@ export const { sessionChanged } = authSlice.actions;
 export const { sidebarToggled } = uiSlice.actions;
 export async function initializeCRM(store) {
   crmService.subscribe((snapshot) => store.dispatch(crmSlice.actions.snapshotReceived(snapshot)));
+  let sessionRevision = 0;
+  const refreshForUser = async (user) => {
+    const ticket = ++sessionRevision;
+    store.dispatch(sessionChanged(user));
+    store.dispatch(crmSlice.actions.sessionReset());
+    try {
+      const snapshot = await crmService.getSnapshot();
+      if (ticket === sessionRevision) store.dispatch(crmSlice.actions.snapshotReceived(snapshot));
+    } catch (error) {
+      if (ticket === sessionRevision) store.dispatch(crmSlice.actions.loadFailed(error.message));
+    }
+  };
+  authService.subscribe?.(refreshForUser);
   try {
-    store.dispatch(crmSlice.actions.snapshotReceived(await crmService.getSnapshot()));
+    await authService.initialize?.();
+    await refreshForUser(authService.getSession());
   } catch (error) {
+    store.dispatch(authSlice.actions.authFailed(error.message));
     store.dispatch(crmSlice.actions.loadFailed(error.message));
   }
   let previous;

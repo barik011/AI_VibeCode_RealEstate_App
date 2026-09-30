@@ -1,0 +1,10 @@
+import { createClient } from '@supabase/supabase-js';
+process.loadEnvFile('.env.supabase.local');
+const client=createClient(process.env.SUPABASE_URL,process.env.SUPABASE_SECRET_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
+const result=await client.from('properties').select('*',{count:'exact'}).limit(1);
+console.log(JSON.stringify({properties:{count:result.count,status:result.status,columns:Object.keys(result.data?.[0] || {}),error:result.error?.message || null}}));
+const auth=await client.auth.admin.listUsers({page:1,perPage:1});
+console.log(JSON.stringify({authAdminAvailable:!auth.error,error:auth.error?.message || null}));
+const response=await fetch(`${process.env.SUPABASE_URL}/rest/v1/`,{headers:{apikey:process.env.SUPABASE_SECRET_KEY,Accept:'application/openapi+json'}});
+const spec=await response.json();
+console.log(JSON.stringify({apiStatus:response.status,tables:Object.keys(spec.definitions || {}),paths:Object.keys(spec.paths || {}),error:spec.message}));

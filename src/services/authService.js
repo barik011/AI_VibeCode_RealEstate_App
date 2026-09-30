@@ -1,4 +1,6 @@
 import { storage } from '../utils/storage.js';
+import { isSupabase } from './supabase/client.js';
+import { supabaseAuth } from './supabase/auth.js';
 const accounts = [
   {
     id: 'profile-admin',
@@ -16,7 +18,7 @@ const accounts = [
   },
 ];
 const sessionKey = 'dubai-bayt:session';
-export const authService = {
+const mockAuthService = {
   getSession() {
     let session = storage.get('session', null);
     try {
@@ -55,3 +57,4 @@ export const authService = {
     return 'Demo accounts use Demo123!. No reset email is sent in this frontend demo.';
   },
 };
+export const authService = isSupabase ? supabaseAuth : mockAuthService;

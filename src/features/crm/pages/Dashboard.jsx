@@ -241,7 +241,7 @@ export function Reports() {
     <>
       <PageHeading
         title="Reports & insights"
-        subtitle="Live analytics calculated from your local CRM records."
+        subtitle="Live analytics calculated from your CRM records."
       />
       <div className="crm-stats">
         <StatCard

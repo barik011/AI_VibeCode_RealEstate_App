@@ -129,7 +129,8 @@ test('forms validate and store only in this browser', async ({ page }) => {
 });
 
 test('all content routes render, invalid slugs fall back and links are real', async ({ page }) => {
-  test.setTimeout(120000);
+  // Every catalog detail is a fresh document navigation, plus invalid-route checks.
+  test.setTimeout(180000);
   // Route assertions do not depend on third-party image delivery.
   await page.route('https://images.unsplash.com/**', (route) =>
     route.fulfill({

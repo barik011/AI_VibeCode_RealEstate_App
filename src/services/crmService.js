@@ -1,5 +1,7 @@
 import { mockDatabase } from '../repositories/mockDatabase.js';
 import { authService } from './authService.js';
+import { isSupabase } from './supabase/client.js';
+import { supabaseCRM } from './supabase/crm.js';
 import {
   canAccessLead,
   canAccessWork,
@@ -534,7 +536,7 @@ export function applyCommand(data, command, payload, user) {
   }
 }
 
-export const crmService = {
+const mockCRMService = {
   async execute(command, payload = {}) {
     const data = mockDatabase.read();
     const result = applyCommand(data, command, payload, authService.getSession());
@@ -552,3 +554,4 @@ export const crmService = {
     return mockDatabase.reset();
   },
 };
+export const crmService = isSupabase ? supabaseCRM : mockCRMService;

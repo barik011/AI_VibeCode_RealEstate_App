@@ -5,12 +5,15 @@ import articles from '../data/blog.json';
 import testimonials from '../data/testimonials.json';
 import { translate, normalizeSearch } from '../i18n/translate';
 import { crmService } from './crmService';
+import { isSupabase, requireSupabase, backendError } from './supabase/client';
+import site from '../data/site.json';
 
-const collections = { properties, locations, categories, articles, testimonials };
+const collections = { properties, locations, categories, articles, testimonials,site };
 export const catalogService = {
   async getCollection(name) {
     if (name === 'properties')
       return (await crmService.getSnapshot()).properties.filter((p) => p.status === 'ACTIVE');
+    if(isSupabase) {const {data,error}=await requireSupabase().from('public_content').select('data').eq('kind',name).single();if(error)throw backendError(error);return data.data;}
     if (!collections[name]) throw new Error('Collection unavailable');
     return collections[name];
   },
