@@ -141,39 +141,50 @@ export function FormDialog({
   children,
   submitLabel = 'Save',
   description,
+  danger = false,
+  submitDisabled = false,
+  pendingLabel = 'Saving…',
 }) {
   const [error, setError] = useState('');
   const [pending, setPending] = useState(false);
+  const submitting = useRef(false);
   return (
-    <Dialog title={title} onClose={onClose}>
+    <Dialog title={title} onClose={() => !submitting.current && onClose()}>
       <form
+        aria-busy={pending}
         onSubmit={async (event) => {
           event.preventDefault();
+          if (submitting.current || submitDisabled) return;
+          const fields = Object.fromEntries(new FormData(event.currentTarget));
+          submitting.current = true;
           setError('');
           setPending(true);
           try {
-            await onSubmit(Object.fromEntries(new FormData(event.currentTarget)));
+            await onSubmit(fields);
             onClose();
           } catch (e) {
             setError(e.message);
           } finally {
+            submitting.current = false;
             setPending(false);
           }
         }}
       >
         {description && <p className="crm-muted">{description}</p>}
-        <div className="crm-form-grid">{children}</div>
+        <fieldset className="crm-form-grid" disabled={pending}>
+          {children}
+        </fieldset>
         {error && (
           <p className="crm-error" role="alert">
             {error}
           </p>
         )}
         <footer>
-          <Button secondary onClick={onClose}>
+          <Button secondary onClick={onClose} disabled={pending}>
             Cancel
           </Button>
-          <Button type="submit" disabled={pending}>
-            {pending ? 'Saving…' : submitLabel}
+          <Button type="submit" danger={danger} disabled={pending || submitDisabled}>
+            {pending ? pendingLabel : submitLabel}
           </Button>
         </footer>
       </form>

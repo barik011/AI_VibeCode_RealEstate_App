@@ -1,6 +1,7 @@
 import { storage } from '../utils/storage.js';
 import { isSupabase } from './supabase/client.js';
 import { supabaseAuth } from './supabase/auth.js';
+import { mockDatabase } from '../repositories/mockDatabase.js';
 const accounts = [
   {
     id: 'profile-admin',
@@ -19,6 +20,7 @@ const accounts = [
 ];
 const sessionKey = 'dubai-bayt:session';
 const mockAuthService = {
+  hasAgentAccount: (agentId) => accounts.some((account) => account.agentId === agentId),
   getSession() {
     let session = storage.get('session', null);
     try {
@@ -26,12 +28,27 @@ const mockAuthService = {
     } catch {
       /* No browser session available. */
     }
-    return accounts.find((account) => account.id === session?.id) || null;
+    const account = accounts.find((entry) => entry.id === session?.id);
+    if (
+      account?.role === 'AGENT' &&
+      !mockDatabase
+        .read()
+        .agents.some((agent) => agent.id === account.agentId && agent.status === 'ACTIVE')
+    )
+      return null;
+    return account || null;
   },
   async signIn({ email, password, remember = false }) {
     const user = accounts.find((account) => account.email === email.trim().toLowerCase());
     if (!user || password !== 'Demo123!')
       throw new Error('Use a demo email and the password Demo123!.');
+    if (
+      user.role === 'AGENT' &&
+      !mockDatabase
+        .read()
+        .agents.some((agent) => agent.id === user.agentId && agent.status === 'ACTIVE')
+    )
+      throw new Error('This agent account is inactive. Contact your administrator.');
     this.signOut();
     if (remember) {
       if (!storage.set('session', { id: user.id }))

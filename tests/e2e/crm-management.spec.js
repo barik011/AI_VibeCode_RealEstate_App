@@ -159,7 +159,7 @@ test('manual lead creation, filters, property publish controls and saved prefere
   await expect(page.locator('h1')).toHaveText('Recruiter Test Residence');
   await page.goto('/admin/properties');
   await page.getByLabel('Search properties').fill('Recruiter Test Residence');
-  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.getByRole('button', { name: 'Edit Recruiter Test Residence', exact: true }).click();
   await modal(page).getByLabel('Status', { exact: true }).selectOption('DRAFT');
   await save(page);
   await page.goto('/property/recruiter-test-residence-21');

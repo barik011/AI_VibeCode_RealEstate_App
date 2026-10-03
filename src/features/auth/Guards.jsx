@@ -5,6 +5,12 @@ import { homeFor } from '../crm/constants';
 export function ProtectedRoute() {
   const user = useSelector(selectUser);
   const loading = useSelector((state) => state.auth.loading);
+  const agentActive = useSelector(
+    (state) =>
+      state.crm.loading ||
+      Boolean(state.crm.error) ||
+      state.crm.agents.some((agent) => agent.id === user?.agentId && agent.status === 'ACTIVE'),
+  );
   const location = useLocation();
   if (loading)
     return (
@@ -12,7 +18,11 @@ export function ProtectedRoute() {
         Restoring your session…
       </div>
     );
-  return user ? <Outlet /> : <Navigate to="/login" state={{ from: location.pathname }} replace />;
+  return user && (user.role !== 'AGENT' || agentActive) ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" state={{ from: location.pathname }} replace />
+  );
 }
 export function RoleGuard({ role }) {
   const user = useSelector(selectUser);
@@ -21,7 +31,7 @@ export function RoleGuard({ role }) {
   ) : (
     <div className="crm crm-denied" dir="ltr">
       <h1>Access restricted</h1>
-      <p>This workspace requires the {role.toLowerCase()} demo account.</p>
+      <p>This workspace requires an authorized {role.toLowerCase()} account.</p>
       <Link className="crm-button" to={homeFor(user)}>
         Return to your dashboard
       </Link>

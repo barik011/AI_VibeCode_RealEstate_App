@@ -39,6 +39,8 @@ export function createSeed(now = new Date()) {
   return {
     ...data,
     notes: [],
+    agentEvents: [],
+    propertyEvents: [],
     notifications: [],
     settings: {
       company: 'Dubai House',

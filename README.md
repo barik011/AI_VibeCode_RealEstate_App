@@ -59,6 +59,8 @@ When editing English copy or adding catalog entries, add the corresponding Arabi
 
 ## Application structure
 
+CRM agent/property controls, conflict protection, connection recovery, bulk assignment, reporting, safeguards and release requirements are documented in [CRM_IMPROVEMENTS.md](CRM_IMPROVEMENTS.md).
+
 - `src/data/`: 20 properties, eight locations, five categories, three testimonials, four articles and centralized site/image configuration in JSON.
 - `src/services/catalog.js`: asynchronous collection adapter, property service, filtering and calculated similar-property ranking.
 - `src/hooks/useCatalog.jsx`: shared loading/error handling and collection context.
@@ -193,3 +195,5 @@ Run `npm run build` and publish the contents of `dist/`.
 The configuration assumes deployment at the domain root. For a subdirectory, update Vite `base`, BrowserRouter `basename`, asset paths and the host rewrite base together.
 
 Before using this as a real agency website, replace demo content, contact/social details and policies with verified business information.
+
+Production builds require `VITE_DATA_BACKEND=supabase`, `VITE_SUPABASE_URL` and a public Supabase key. Missing configuration fails the build instead of deploying demo authentication. For an offline demonstration bundle, set `VITE_DATA_BACKEND=mock` and explicitly run `npm run build -- --mode demo`.

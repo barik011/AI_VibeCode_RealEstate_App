@@ -11,6 +11,16 @@ async function profileFor(session) {
     .eq('id', session.user.id)
     .maybeSingle();
   if (error) throw backendError(error);
+  if (data?.role === 'AGENT') {
+    const { data: agent, error: agentError } = await requireSupabase()
+      .from('agents')
+      .select('id')
+      .eq('id', data.agent_id)
+      .eq('status', 'ACTIVE')
+      .maybeSingle();
+    if (agentError) throw backendError(agentError);
+    if (!agent) return null;
+  }
   return data
     ? {
         id: data.id,
@@ -65,7 +75,9 @@ export const supabaseAuth = {
     const user = await loadSession(data.session);
     if (!user) {
       await this.signOut();
-      throw new Error('This account has no CRM profile. Ask your administrator to grant access.');
+      throw new Error(
+        'This account has no active CRM profile. Ask your administrator to grant access.',
+      );
     }
     return user;
   },

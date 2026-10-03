@@ -205,7 +205,7 @@ test('validation rejects invalid transitions, dates, property images and deal va
       applyCommand(
         data,
         'saveProperty',
-        { ...data.properties[0], images: ['javascript:alert(1)'] },
+        { ...data.properties[0], expectedVersion: 1, images: ['javascript:alert(1)'] },
         admin,
       ),
     /image URL/,

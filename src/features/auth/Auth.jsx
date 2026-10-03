@@ -77,7 +77,7 @@ export function Login() {
           type="email"
           required
           autoComplete="username"
-          placeholder="you@dubaihouse.demo"
+          placeholder="you@company.com"
         />
         <Field
           label="Password"

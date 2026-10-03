@@ -7,6 +7,8 @@ const empty = {
   leads: [],
   properties: [],
   agents: [],
+  agentEvents: [],
+  propertyEvents: [],
   tasks: [],
   viewings: [],
   notes: [],
@@ -91,6 +93,8 @@ export const selectWorkspace = createSelector([selectCRM, selectUser], (data, us
   const ids = new Set(leads.map((lead) => lead.id));
   return {
     ...data,
+    agentEvents: isAdmin(user) ? data.agentEvents || [] : [],
+    propertyEvents: isAdmin(user) ? data.propertyEvents || [] : [],
     leads,
     tasks: data.tasks.filter((t) => ids.has(t.leadId) && canAccessWork(user, t)),
     viewings: data.viewings.filter((v) => ids.has(v.leadId) && canAccessWork(user, v)),

@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { Plus, Pencil, Trash2 } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useCatalog } from '../../../hooks/useCatalog';
 import { Photo } from '../../../components/ui';
 import { selectWorkspace } from '../store';
 import { money } from '../constants';
+import { propertyImpact } from '../propertyRules';
 import {
   Badge,
   Button,
@@ -14,6 +16,7 @@ import {
   PageHeading,
   Pagination,
   Panel,
+  Timeline,
   useCommand,
 } from '../components/UI';
 function PropertyForm({ property, onClose }) {
@@ -38,11 +41,13 @@ function PropertyForm({ property, onClose }) {
       onClose={onClose}
       onSubmit={(fields) => {
         const location = locations.find((l) => l.slug === fields.locationSlug);
+        if (!location) throw new Error('Select a valid location.');
         return run(
           'saveProperty',
           {
             ...fields,
             id: property?.id,
+            expectedVersion: property?.version || 1,
             location: location.name,
             featured: fields.featured === 'on',
           },
@@ -50,7 +55,7 @@ function PropertyForm({ property, onClose }) {
         );
       }}
     >
-      <Field label="Title" name="title" defaultValue={property?.title} required />
+      <Field label="Title" name="title" defaultValue={property?.title} required maxLength={200} />
       <Field
         label="Purpose"
         name="purpose"
@@ -124,6 +129,7 @@ function PropertyForm({ property, onClose }) {
         name="description"
         type="textarea"
         required
+        maxLength={10000}
         defaultValue={property?.description}
       />
       <Field
@@ -150,6 +156,61 @@ function PropertyForm({ property, onClose }) {
     </FormDialog>
   );
 }
+function DeletePropertyDialog({ property, data, onClose }) {
+  const run = useCommand();
+  const impact = propertyImpact(data, property.id);
+  const [archiveInstead, setArchive] = useState(false);
+  const archive = Boolean(impact.linked) || archiveInstead;
+  const [confirmTitle, setConfirmTitle] = useState('');
+  return (
+    <FormDialog
+      title="Delete property"
+      onClose={onClose}
+      danger={!archive}
+      submitLabel={archive ? 'Archive property' : 'Delete property'}
+      pendingLabel={archive ? 'Archiving…' : 'Deleting…'}
+      onSubmit={() =>
+        run(
+          archive ? 'archiveProperty' : 'deleteProperty',
+          {
+            id: property.id,
+            expectedVersion: property.version || 1,
+            confirmTitle,
+          },
+          archive ? 'Property archived. CRM history preserved.' : 'Property deleted.',
+        )
+      }
+    >
+      <p className="crm-muted">
+        {impact.linked
+          ? `This property is linked to ${impact.leads} leads or deals and ${impact.viewings} viewings. It can be archived to remove it from the public catalog while preserving this history.`
+          : 'Deleting this property permanently removes it from the catalog. You can archive it instead to keep the record.'}
+      </p>
+      {!impact.linked && (
+        <label className="crm-check">
+          <input
+            type="checkbox"
+            checked={archive}
+            onChange={(event) => setArchive(event.target.checked)}
+          />
+          Archive instead of permanently deleting
+        </label>
+      )}
+      {!archive && (
+        <Field
+          label="Type property title to confirm"
+          value={confirmTitle}
+          onChange={(event) => setConfirmTitle(event.target.value)}
+          required
+          autoComplete="off"
+        />
+      )}
+      <p>
+        <strong>{property.title}</strong>
+      </p>
+    </FormDialog>
+  );
+}
 export function Properties() {
   const data = useSelector(selectWorkspace);
   const [params, setParams] = useSearchParams();
@@ -158,11 +219,15 @@ export function Properties() {
   const [purpose, setPurpose] = useState('');
   const [page, setPage] = useState(1);
   const [edit, setEdit] = useState(null);
+  const [deleting, setDeleting] = useState(null);
+  const [savingFeatured, setSavingFeatured] = useState(null);
   const [error, setError] = useState('');
   const run = useCommand();
   const rows = data.properties.filter(
     (p) =>
-      `${p.title} ${p.location}`.toLowerCase().includes(query.toLowerCase()) &&
+      `${p.title} ${p.location} ${p.reference}`
+        .toLowerCase()
+        .includes(query.trim().toLowerCase()) &&
       (!status || p.status === status) &&
       (!purpose || p.purpose === purpose) &&
       (!params.get('property') || String(p.id) === params.get('property')),
@@ -178,7 +243,14 @@ export function Properties() {
         title="Property portfolio"
         subtitle="Manage the collection your customers discover on the public website."
       >
-        <Button onClick={() => setEdit({})}>+ Add property</Button>
+        <Button
+          className="crm-icon-action"
+          aria-label="Add property"
+          title="Add property"
+          onClick={() => setEdit({})}
+        >
+          <Plus size={18} />
+        </Button>
       </PageHeading>
       <Panel>
         <div className="crm-work-filters">
@@ -249,15 +321,20 @@ export function Properties() {
                 <button
                   className="crm-text-button"
                   aria-label={`${p.featured ? 'Unfeature' : 'Feature'} ${p.title}`}
+                  disabled={savingFeatured !== null}
                   onClick={async () => {
+                    setSavingFeatured(p.id);
+                    setError('');
                     try {
                       await run(
-                        'saveProperty',
-                        { ...p, featured: !p.featured },
+                        'setPropertyFeatured',
+                        { id: p.id, featured: !p.featured, expectedVersion: p.version || 1 },
                         'Featured selection updated.',
                       );
                     } catch (e) {
                       setError(e.message);
+                    } finally {
+                      setSavingFeatured(null);
                     }
                   }}
                 >
@@ -268,15 +345,38 @@ export function Properties() {
             {
               title: 'Actions',
               render: (p) => (
-                <Button secondary onClick={() => setEdit(p)}>
-                  Edit
-                </Button>
+                <div className="crm-actions">
+                  <Button
+                    secondary
+                    className="crm-icon-action"
+                    aria-label={`Edit ${p.title}`}
+                    title={`Edit ${p.title}`}
+                    onClick={() => setEdit(p)}
+                  >
+                    <Pencil size={16} />
+                  </Button>
+                  <Button
+                    danger
+                    className="crm-icon-action"
+                    aria-label={`Delete ${p.title}`}
+                    title={`Delete ${p.title}`}
+                    onClick={() => setDeleting(p)}
+                  >
+                    <Trash2 size={16} />
+                  </Button>
+                </div>
               ),
             },
           ]}
         />
         <Pagination page={current} count={rows.length} onChange={setPage} />
       </Panel>
+      <Panel title="Recent property changes">
+        <Timeline activities={(data.propertyEvents || []).slice(0, 20)} />
+      </Panel>
+      {deleting && (
+        <DeletePropertyDialog property={deleting} data={data} onClose={() => setDeleting(null)} />
+      )}
       {(edit || params.get('add')) && (
         <PropertyForm property={edit?.id ? edit : null} onClose={close} />
       )}

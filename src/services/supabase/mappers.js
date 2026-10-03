@@ -60,6 +60,8 @@ export function leadFromRow(row) {
 export const emptySnapshot = () => ({
   properties: [],
   agents: [],
+  agentEvents: [],
+  propertyEvents: [],
   leads: [],
   tasks: [],
   viewings: [],

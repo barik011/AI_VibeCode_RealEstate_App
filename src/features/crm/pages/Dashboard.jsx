@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { House, Users, CalendarDays, Trophy, Clock, Target } from 'lucide-react';
+import { House, Users, CalendarDays, Trophy, Clock, Target, Download } from 'lucide-react';
+import { downloadCsv, leadExportRows, filterReport, followUpState } from '../reporting';
+import { useCRMClock } from '../useCRMClock';
 import { selectUser, selectWorkspace } from '../store';
 import { isAdmin, TERMINAL, STAGES, taskStatus, dateKey, dateTime, money } from '../constants';
 import {
@@ -8,6 +10,7 @@ import {
   Bars,
   Button,
   DataTable,
+  Field,
   PageHeading,
   Panel,
   RecordLink,
@@ -233,7 +236,12 @@ export function Dashboard() {
   );
 }
 export function Reports() {
-  const data = useSelector(selectWorkspace);
+  const workspace = useSelector(selectWorkspace);
+  const [filters, setFilters] = useState({ from: '', to: '', agent: '' });
+  const now = useCRMClock();
+  const invalidRange = Boolean(filters.from && filters.to && filters.from > filters.to);
+  const data = filterReport(workspace, filters);
+  const update = (key, value) => setFilters((current) => ({ ...current, [key]: value }));
   const won = data.leads.filter((l) => l.status === 'WON');
   const lost = data.leads.filter((l) => l.status === 'LOST');
   const active = data.leads.filter((l) => !TERMINAL.includes(l.status));
@@ -242,8 +250,66 @@ export function Reports() {
       <PageHeading
         title="Reports & insights"
         subtitle="Live analytics calculated from your CRM records."
-      />
+      >
+        <Button
+          secondary
+          disabled={invalidRange || !data.leads.length}
+          onClick={() => downloadCsv('crm-report.csv', leadExportRows(data.leads, data.agents))}
+        >
+          <Download size={17} /> Export report
+        </Button>
+      </PageHeading>
+      <Panel title="Report filters">
+        <div className="crm-work-filters">
+          <Field
+            label="Leads created from"
+            type="date"
+            value={filters.from}
+            max={filters.to || undefined}
+            onChange={(e) => update('from', e.target.value)}
+          />
+          <Field
+            label="Leads created to"
+            type="date"
+            value={filters.to}
+            min={filters.from || undefined}
+            onChange={(e) => update('to', e.target.value)}
+          />
+          <Field
+            label="Report agent"
+            value={filters.agent}
+            options={[
+              ['', 'All agents'],
+              ['unassigned', 'Unassigned'],
+              ...workspace.agents.map((a) => [a.id, a.name]),
+            ]}
+            onChange={(e) => update('agent', e.target.value)}
+          />
+          <Button secondary onClick={() => setFilters({ from: '', to: '', agent: '' })}>
+            Reset report filters
+          </Button>
+        </div>
+        <p className="crm-pad crm-muted">
+          {data.leads.length} matching leads. Dates filter when leads were created; deal values and
+          work below belong to those leads.
+        </p>
+        {invalidRange && (
+          <p className="crm-error" role="alert">
+            The end date must be on or after the start date.
+          </p>
+        )}
+      </Panel>
       <div className="crm-stats">
+        <StatCard
+          title="Overdue follow-ups"
+          value={data.leads.filter((lead) => followUpState(lead, now) === 'overdue').length}
+          detail="Open leads with a past-due follow-up"
+        />
+        <StatCard
+          title="Missing follow-ups"
+          value={data.leads.filter((lead) => followUpState(lead, now) === 'unscheduled').length}
+          detail="Open leads without a scheduled next step"
+        />
         <StatCard
           title="Pipeline value"
           value={money(active.reduce((sum, l) => sum + (l.budget.max || 0), 0))}

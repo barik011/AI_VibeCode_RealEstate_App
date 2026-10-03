@@ -155,7 +155,7 @@ test('property changes update public catalog, settings reset and all CRM routes 
   }
   await page.goto('/admin/properties');
   await page.getByLabel('Search properties').fill('Palm Jumeirah Villa');
-  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.getByRole('button', { name: 'Edit Palm Jumeirah Villa', exact: true }).click();
   await dialog(page).getByLabel('Title', { exact: true }).fill('Palm Jumeirah Villa Updated');
   await save(page);
   await page.goto('/property/palm-jumeirah-villa');

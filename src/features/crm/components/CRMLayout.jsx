@@ -17,6 +17,7 @@ import {
   Menu,
   LogOut,
   ChevronRight,
+  RefreshCw,
 } from 'lucide-react';
 import {
   selectUser,
@@ -24,12 +25,15 @@ import {
   sessionChanged,
   sidebarToggled,
   selectDueAlerts,
+  crmSlice,
 } from '../store';
+import { crmService } from '../../../services/crmService';
 import { authService } from '../../../services/authService';
 import { isAdmin, label, dateTime } from '../constants';
 import { Button, Dialog, EmptyState, useCommand } from './UI';
 import '../crm.css';
 import { isSupabase } from '../../../services/supabase/client';
+import { useCRMClock } from '../useCRMClock';
 const adminNav = [
   ['dashboard', 'Dashboard', LayoutDashboard],
   ['leads', 'Leads', Users],
@@ -75,6 +79,7 @@ function Sidebar({ admin, base, onNavigate, collapsed }) {
   );
 }
 export function CRMLayout({ admin = false }) {
+  useCRMClock();
   const user = useSelector(selectUser);
   const data = useSelector(selectWorkspace);
   const collapsed = useSelector((s) => s.crmUi.collapsed);
@@ -87,6 +92,20 @@ export function CRMLayout({ admin = false }) {
   const [query, setQuery] = useState('');
   const [userMenu, setUserMenu] = useState(false);
   const [error, setError] = useState('');
+  const [sync, setSync] = useState(crmService.getSyncStatus?.() || {});
+  useEffect(() => crmService.subscribeStatus?.(setSync), []);
+  const refresh = async () => {
+    setSync((previous) => ({ ...previous, refreshing: true }));
+    try {
+      if (crmService.refresh) await crmService.refresh();
+      else {
+        dispatch(crmSlice.actions.snapshotReceived(await crmService.getSnapshot()));
+        setSync((previous) => ({ ...previous, refreshing: false, error: '' }));
+      }
+    } catch (failure) {
+      setSync(crmService.getSyncStatus?.() || { refreshing: false, error: failure.message });
+    }
+  };
   const base = admin ? '/admin' : '/agent';
   useEffect(() => {
     setQuery('');
@@ -202,6 +221,15 @@ export function CRMLayout({ admin = false }) {
             {isSupabase ? 'Supabase' : 'Demo Mode'}
           </span>
           <button
+            className="crm-icon"
+            aria-label="Refresh workspace"
+            title="Refresh workspace"
+            disabled={sync.refreshing}
+            onClick={refresh}
+          >
+            <RefreshCw size={20} />
+          </button>
+          <button
             className="crm-icon crm-bell"
             aria-label={`Notifications, ${unread} unread`}
             onClick={() => setNotifications(true)}
@@ -264,14 +292,31 @@ export function CRMLayout({ admin = false }) {
                 </span>
               ))}
           </nav>
+          {sync.error && (
+            <div className="crm-error" role="alert">
+              <p>{sync.error}</p>
+              <Button secondary onClick={refresh} disabled={sync.refreshing}>
+                Retry refresh
+              </Button>
+            </div>
+          )}
+          {!sync.error && sync.live === false && (
+            <p className="crm-muted" role="status">
+              Live updates are reconnecting. The workspace also refreshes automatically every
+              minute.
+            </p>
+          )}
           {data.loading ? (
             <div className="crm-skeleton" role="status">
               Loading workspace…
             </div>
           ) : data.error ? (
-            <p className="crm-error" role="alert">
+            <div className="crm-error" role="alert">
               {data.error}
-            </p>
+              <Button secondary onClick={refresh} disabled={sync.refreshing}>
+                Retry loading workspace
+              </Button>
+            </div>
           ) : (
             <Outlet />
           )}

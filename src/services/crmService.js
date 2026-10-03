@@ -2,6 +2,12 @@ import { mockDatabase } from '../repositories/mockDatabase.js';
 import { authService } from './authService.js';
 import { isSupabase } from './supabase/client.js';
 import { supabaseCRM } from './supabase/crm.js';
+import { agentImpact, validateAgent } from '../features/crm/agentRules.js';
+import {
+  propertyImpact,
+  assertPropertyVersion,
+  validatePropertyText,
+} from '../features/crm/propertyRules.js';
 import {
   canAccessLead,
   canAccessWork,
@@ -52,7 +58,23 @@ const assertOpen = (lead) => {
 // All workflow rules and their side effects run in one transaction. A future
 // backend adapter should preserve this contract with database transactions/RPCs.
 export function applyCommand(data, command, payload, user) {
+  if (
+    command !== 'inquiry' &&
+    user?.role === 'AGENT' &&
+    !data.agents.some((agent) => agent.id === user.agentId && agent.status === 'ACTIVE')
+  )
+    throw new Error('Your agent account is inactive. Contact your administrator.');
   const now = new Date().toISOString();
+  const propertyEvent = (property, type, message) => {
+    (data.propertyEvents ||= []).unshift({
+      id: id('PE'),
+      propertyId: property.id,
+      type,
+      message,
+      author: user.name,
+      createdAt: now,
+    });
+  };
   const activity = (lead, type, message) => {
     lead.updatedAt = now;
     data.activities.unshift({
@@ -115,6 +137,8 @@ export function applyCommand(data, command, payload, user) {
     const property = payload.propertyId
       ? find(data.properties, payload.propertyId, 'Property')
       : null;
+    if (command === 'inquiry' && property && property.status !== 'ACTIVE')
+      throw new Error('Property is unavailable.');
     const ranges = {
       'Under 1 million': [0, 1000000],
       '1–5 million': [1000000, 5000000],
@@ -163,9 +187,77 @@ export function applyCommand(data, command, payload, user) {
     return lead;
   }
   if (!user) throw new Error('Sign in to continue.');
+  if (command === 'bulkAssign') {
+    assertAdmin(user);
+    if (!Array.isArray(payload.ids) || !payload.ids.length || payload.ids.length > 100)
+      throw new Error('Select between 1 and 100 leads.');
+    const ids = [...new Set(payload.ids)];
+    const agent = find(data.agents, payload.agentId, 'Agent');
+    if (agent.status !== 'ACTIVE') throw new Error('Select an active agent.');
+    ids.forEach((key) => assertOpen(find(data.leads, key, 'Lead')));
+    // Apply to a copy so even direct callers never observe a partially applied batch.
+    const next = structuredClone(data);
+    ids.forEach((key) => applyCommand(next, 'assign', { id: key, agentId: agent.id }, user));
+    Object.assign(data, next);
+    return { count: ids.length };
+  }
+  if (command === 'deleteAgent') {
+    assertAdmin(user);
+    const agent = find(data.agents, payload.id, 'Agent');
+    if (payload.confirmName !== agent.name)
+      throw new Error('Type the agent name to confirm deletion.');
+    if (agentImpact(data, agent.id).linked || authService.hasAgentAccount?.(agent.id))
+      throw new Error(
+        'This agent has linked CRM records or a login account. Reassign open work and deactivate the agent instead.',
+      );
+    data.agents = data.agents.filter((row) => row.id !== agent.id);
+    (data.agentEvents ||= []).unshift({
+      id: id('AE'),
+      agentId: agent.id,
+      type: 'DELETED',
+      message: `Deleted agent ${agent.name}.`,
+      author: user.name,
+      createdAt: now,
+    });
+    return { id: agent.id };
+  }
+  if (['deleteProperty', 'setPropertyFeatured', 'archiveProperty'].includes(command)) {
+    assertAdmin(user);
+    const property = find(data.properties, payload.id, 'Property');
+    assertPropertyVersion(property, payload.expectedVersion);
+    if (command === 'deleteProperty') {
+      if (payload.confirmTitle !== property.title)
+        throw new Error('Type the property title to confirm deletion.');
+      if (propertyImpact(data, property.id).linked)
+        throw new Error(
+          'This property has linked leads, deals or viewings. Archive it to preserve CRM history.',
+        );
+      data.properties = data.properties.filter((row) => row.id !== property.id);
+      propertyEvent(property, 'DELETED', `Deleted property ${property.title}.`);
+    } else {
+      if (command === 'setPropertyFeatured') {
+        if (typeof payload.featured !== 'boolean')
+          throw new Error('Choose a valid featured value.');
+        property.featured = payload.featured;
+      } else {
+        property.status = 'INACTIVE';
+        property.featured = false;
+      }
+      property.version = (property.version || 1) + 1;
+      property.updatedAt = now;
+      propertyEvent(
+        property,
+        command === 'archiveProperty' ? 'ARCHIVED' : 'UPDATED',
+        `${command === 'archiveProperty' ? 'Archived' : 'Updated featured selection for'} property ${property.title}.`,
+      );
+    }
+    return { id: property.id };
+  }
   if (command === 'saveProperty') {
     assertAdmin(user);
     const existing = payload.id ? find(data.properties, payload.id, 'Property') : null;
+    if (existing) assertPropertyVersion(existing, payload.expectedVersion);
+    validatePropertyText(payload);
     const title = required(payload.title, 'Title');
     const images = (
       Array.isArray(payload.images) ? payload.images : String(payload.images || '').split('\n')
@@ -191,10 +283,14 @@ export function applyCommand(data, command, payload, user) {
       !['ACTIVE', 'DRAFT', 'SOLD', 'RENTED', 'INACTIVE'].includes(payload.status)
     )
       throw new Error('Choose a valid property purpose and status.');
-    const propertyId = existing?.id || Math.max(0, ...data.properties.map((p) => Number(p.id))) + 1;
+    const propertyId =
+      existing?.id ||
+      Math.max(data.propertySequence || 0, ...data.properties.map((p) => Number(p.id))) + 1;
     const result = {
       ...existing,
       id: propertyId,
+      version: existing ? (existing.version || 1) + 1 : 1,
+      updatedAt: now,
       title,
       slug:
         existing?.slug ||
@@ -230,14 +326,22 @@ export function applyCommand(data, command, payload, user) {
       reference: existing?.reference || `DH-${propertyId}`,
       coordinates: existing?.coordinates || { lat: 25.2048, lng: 55.2708 },
       agent: existing?.agent || {
-        name: data.agents[0].name,
+        name: data.agents[0]?.name || 'Dubai House',
         role: 'Property Advisor',
-        languages: data.agents[0].languages.join(' · '),
-        image: data.agents[0].avatar,
+        languages: data.agents[0]?.languages.join(' · ') || '',
+        image: data.agents[0]?.avatar || '',
       },
     };
     if (existing) Object.assign(existing, result);
-    else data.properties.unshift(result);
+    else {
+      data.propertySequence = propertyId;
+      data.properties.unshift(result);
+    }
+    propertyEvent(
+      result,
+      existing ? 'UPDATED' : 'CREATED',
+      `${existing ? 'Updated' : 'Created'} property ${result.title} (${result.status}).`,
+    );
     return result;
   }
   if (command === 'saveSettings') {
@@ -250,20 +354,34 @@ export function applyCommand(data, command, payload, user) {
     };
     return data.settings;
   }
-  if (command === 'saveAgent') {
-    const agent = find(data.agents, payload.id, 'Agent');
-    if (!isAdmin(user) && agent.id !== user.agentId) throw new Error('Access denied.');
-    Object.assign(agent, {
-      name: required(payload.name, 'Name'),
-      phone: required(payload.phone, 'Phone'),
-      specialization: required(payload.specialization, 'Specialization'),
-      languages: String(payload.languages)
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean),
+  if (command === 'saveAgent' || command === 'createAgent') {
+    const agent = command === 'saveAgent' ? find(data.agents, payload.id, 'Agent') : null;
+    if (!agent) assertAdmin(user);
+    if (agent && !isAdmin(user) && agent.id !== user.agentId) throw new Error('Access denied.');
+    const fields = validateAgent(payload, agent, isAdmin(user));
+    if (data.agents.some((row) => row.id !== agent?.id && row.email.toLowerCase() === fields.email))
+      throw new Error('An agent with this email already exists.');
+    const impact = agent && agentImpact(data, agent.id);
+    if (
+      fields.status === 'INACTIVE' &&
+      impact &&
+      (impact.openLeads || impact.openTasks || impact.scheduledViewings)
+    )
+      throw new Error(
+        'Reassign all open leads, tasks and scheduled viewings before deactivating this agent.',
+      );
+    const result = agent || { id: id('agent'), avatar: '' };
+    Object.assign(result, fields);
+    if (!agent) data.agents.unshift(result);
+    (data.agentEvents ||= []).unshift({
+      id: id('AE'),
+      agentId: result.id,
+      type: agent ? 'UPDATED' : 'CREATED',
+      message: `${agent ? 'Updated' : 'Created'} agent ${result.name} (${result.status}).`,
+      author: user.name,
+      createdAt: now,
     });
-    if (isAdmin(user)) agent.status = payload.status === 'INACTIVE' ? 'INACTIVE' : 'ACTIVE';
-    return agent;
+    return result;
   }
   if (command === 'readNotifications') {
     for (const task of data.tasks.filter(
@@ -328,6 +446,13 @@ export function applyCommand(data, command, payload, user) {
       return lead;
     }
     case 'status': {
+      if (
+        payload.status === 'FOLLOW_UP' &&
+        data.agents.some(
+          (agent) => agent.id === lead.assignedAgentId && agent.status === 'INACTIVE',
+        )
+      )
+        throw new Error('Reactivate the responsible agent before reopening this lead.');
       if (
         !STAGES.includes(payload.status) ||
         ['WON', 'LOST', 'VIEWING_SCHEDULED', 'VIEWING_COMPLETED'].includes(payload.status)

@@ -1,8 +1,10 @@
 # Supabase setup and migration
 
+Migrations through `202610030002_property_management.sql` were applied to the configured hosted project on 2026-10-03. They add agent/property audit history, protected CRUD and archive commands, atomic bulk assignment, inactive-account restrictions, and property version checks. Both private command implementations deny direct authenticated execution; property audit RLS and the version trigger were verified on the hosted database. Deploy the matching frontend with the property migration: property updates and deletion now require `expectedVersion`. See [CRM_IMPROVEMENTS.md](CRM_IMPROVEMENTS.md) for behavior and acceptance-test results.
+
 The application now has a Supabase backend adapter as well as its offline mock adapter. The connected mode does **not** fall back to local mock records when a database request fails. Database creation and seed import must finish before connected public pages can load.
 
-Hosted project `oflrgmjcdnavzegqwtuq` is now initialized: all three migrations are applied, the 13 application tables exist, and the original catalog/CRM seed is imported. A real administrator profile is provisioned. The hosted browser acceptance check passed public inquiry, password login, assignment, agent isolation, follow-up, viewing completion, won-deal persistence and cleanup. Final counts are 20 properties, 40 leads, 6 agents, 28 tasks, 14 viewings, 112 activities, 5 public-content collections and 1 administrator profile. Browser-specific edits still need the Settings import from the browser that holds them.
+Hosted project `oflrgmjcdnavzegqwtuq` is initialized with the shared catalog/CRM data and an administrator profile. Application records can change as the team works; the earlier seed counts are not a current inventory. Use the status script and live CRM for current state. Browser-specific legacy edits require the Settings import from the browser that holds them.
 
 ## Configuration
 
@@ -120,4 +122,4 @@ The Playwright regression suite deliberately starts its own server on port 5174 
 
 With the connected app running at `http://localhost:5173`, `npm run supabase:smoke` performs an opt-in hosted acceptance test. It checks anonymous access restrictions, submits an inquiry through the browser, signs into temporary admin/agent accounts, assigns the lead, schedules follow-up and viewing, closes the deal and verifies persistence after reload. It removes its temporary records/accounts in a `finally` block and never signs into or resets a real team account. It does not send emails. Set `SUPABASE_APP_URL` or pass a URL argument to test another app origin, for example `npm run supabase:smoke -- https://realstate.mohammadbarique.online`.
 
-For an offline demo, set `VITE_DATA_BACKEND=mock` and restart Vite. Keep live and demo browser sessions separate when evaluating persistence.
+For an offline demo, set `VITE_DATA_BACKEND=mock` and restart Vite. Demo bundles must use `npm run build -- --mode demo`; the default production build requires Supabase configuration. Keep live and demo browser sessions separate when evaluating persistence.

@@ -1,7 +1,18 @@
 import { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Plus, LayoutGrid, List, Phone, Mail, MapPin } from 'lucide-react';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import {
+  Plus,
+  LayoutGrid,
+  List,
+  Phone,
+  Mail,
+  MapPin,
+  Download,
+  UserRoundCheck,
+} from 'lucide-react';
+import { downloadCsv, leadExportRows, followUpState } from '../reporting';
+import { useCRMClock } from '../useCRMClock';
 import { selectUser, selectWorkspace } from '../store';
 import {
   STAGES,
@@ -19,6 +30,8 @@ import {
   DataTable,
   EmptyState,
   Field,
+  FormDialog,
+  useCommand,
   PageHeading,
   Pagination,
   Panel,
@@ -71,12 +84,18 @@ export function Leads() {
   const base = admin ? '/admin' : '/agent';
   const navigate = useNavigate();
   const [view, setView] = useState(data.settings.defaultView || 'table');
-  const [filters, setFilters] = useState({});
+  const [params] = useSearchParams();
+  const [filters, setFilters] = useState(() => ({ agent: params.get('agent') || '' }));
   const [page, setPage] = useState(1);
   const [action, setAction] = useState(null);
+  const [selected, setSelected] = useState([]);
+  const [bulk, setBulk] = useState(false);
+  const run = useCommand();
+  const now = useCRMClock();
   const update = (key, value) => {
     setFilters((f) => ({ ...f, [key]: value }));
     setPage(1);
+    setSelected([]);
   };
   const filtered = useMemo(
     () =>
@@ -93,6 +112,7 @@ export function Leads() {
               (filters.agent === 'unassigned' && !l.assignedAgentId)) &&
             (!filters.source || l.source === filters.source) &&
             (!filters.priority || l.priority === filters.priority) &&
+            (!filters.followUp || followUpState(l, now) === filters.followUp) &&
             (!filters.from || l.createdAt.slice(0, 10) >= filters.from) &&
             (!filters.to || l.createdAt.slice(0, 10) <= filters.to),
         )
@@ -105,10 +125,35 @@ export function Leads() {
                 ? a.createdAt.localeCompare(b.createdAt)
                 : b.createdAt.localeCompare(a.createdAt),
         ),
-    [data.leads, data.properties, filters],
+    [data.leads, data.properties, filters, now],
   );
   const currentPage = Math.min(page, Math.max(1, Math.ceil(filtered.length / 10)));
+  const pageRows = filtered.slice((currentPage - 1) * 10, currentPage * 10);
   const columns = [
+    ...(admin
+      ? [
+          {
+            title: 'Select',
+            render: (lead) => (
+              <input
+                type="checkbox"
+                className="crm-selection"
+                aria-label={`Select ${lead.customer.name}`}
+                checked={selected.includes(lead.id)}
+                disabled={
+                  TERMINAL.includes(lead.status) ||
+                  (!selected.includes(lead.id) && selected.length >= 100)
+                }
+                onChange={(event) =>
+                  setSelected((ids) =>
+                    event.target.checked ? [...ids, lead.id] : ids.filter((id) => id !== lead.id),
+                  )
+                }
+              />
+            ),
+          },
+        ]
+      : []),
     {
       title: 'Lead / customer',
       render: (l) => (
@@ -137,7 +182,17 @@ export function Leads() {
       : []),
     { title: 'Status', render: (l) => <Badge value={l.status} /> },
     { title: 'Priority', render: (l) => <Badge value={l.priority} /> },
-    { title: 'Next follow-up', render: (l) => dateTime(l.nextFollowUp) },
+    {
+      title: 'Next follow-up',
+      render: (l) => (
+        <>
+          {dateTime(l.nextFollowUp)}
+          {followUpState(l, now) === 'overdue' && <Badge value="OVERDUE" />}
+          {followUpState(l, now) === 'today' && <Badge value="DUE_TODAY" />}
+          {followUpState(l, now) === 'unscheduled' && <small>No follow-up scheduled</small>}
+        </>
+      ),
+    },
     { title: 'Created', render: (l) => dateTime(l.createdAt) },
     {
       title: 'Actions',
@@ -157,6 +212,13 @@ export function Leads() {
         title={admin ? 'Leads' : 'My leads'}
         subtitle="Keep every conversation moving toward the right outcome."
       >
+        <Button
+          secondary
+          disabled={!filtered.length}
+          onClick={() => downloadCsv('crm-leads.csv', leadExportRows(filtered, data.agents))}
+        >
+          <Download size={17} /> Export leads
+        </Button>
         {admin && (
           <Button onClick={() => setAction({ action: 'create' })}>
             <Plus size={17} /> Add lead
@@ -177,6 +239,18 @@ export function Leads() {
       </div>
       <Panel>
         <div className="crm-filters">
+          <Field
+            label="Follow-up"
+            value={filters.followUp || ''}
+            onChange={(e) => update('followUp', e.target.value)}
+            options={[
+              ['', 'All follow-ups'],
+              ['overdue', 'Overdue'],
+              ['today', 'Due today'],
+              ['upcoming', 'Upcoming'],
+              ['unscheduled', 'No follow-up scheduled'],
+            ]}
+          />
           <Field
             label="Search leads"
             value={filters.q || ''}
@@ -245,6 +319,7 @@ export function Leads() {
               onClick={() => {
                 setFilters({});
                 setPage(1);
+                setSelected([]);
               }}
             >
               Clear filters
@@ -267,12 +342,39 @@ export function Leads() {
             </Button>
           </div>
         </div>
+        {admin && view === 'table' && (
+          <div className="crm-list-toolbar">
+            <span>{selected.length} leads selected (maximum 100)</span>
+            <div className="crm-actions">
+              <Button
+                secondary
+                onClick={() =>
+                  setSelected((ids) =>
+                    [
+                      ...new Set([
+                        ...ids,
+                        ...pageRows
+                          .filter((lead) => !TERMINAL.includes(lead.status))
+                          .map((lead) => lead.id),
+                      ]),
+                    ].slice(0, 100),
+                  )
+                }
+              >
+                Select page
+              </Button>
+              <Button secondary disabled={!selected.length} onClick={() => setSelected([])}>
+                Clear selection
+              </Button>
+              <Button disabled={!selected.length} onClick={() => setBulk(true)}>
+                <UserRoundCheck size={17} /> Assign selected
+              </Button>
+            </div>
+          </div>
+        )}
         {view === 'table' ? (
           <>
-            <DataTable
-              columns={columns}
-              rows={filtered.slice((currentPage - 1) * 10, currentPage * 10)}
-            />
+            <DataTable columns={columns} rows={pageRows} />
             <Pagination page={currentPage} count={filtered.length} onChange={setPage} />
           </>
         ) : (
@@ -283,6 +385,38 @@ export function Leads() {
           />
         )}
       </Panel>
+      {bulk && (
+        <FormDialog
+          title="Assign selected leads"
+          submitLabel="Assign leads"
+          onClose={() => setBulk(false)}
+          description={`Assign ${selected.length} selected leads and transfer their outstanding tasks and viewings. Closed leads cannot be reassigned.`}
+          onSubmit={async (fields) => {
+            await run(
+              'bulkAssign',
+              { ids: selected, agentId: fields.agentId },
+              'Selected leads and open work reassigned.',
+            );
+            setSelected([]);
+          }}
+        >
+          <Field
+            label="Assign to agent"
+            name="agentId"
+            required
+            options={[
+              ['', 'Choose an active agent'],
+              ...data.agents.filter((a) => a.status === 'ACTIVE').map((a) => [a.id, a.name]),
+            ]}
+          />
+          <p className="crm-full">
+            {data.leads
+              .filter((lead) => selected.includes(lead.id))
+              .map((lead) => lead.customer.name)
+              .join(', ')}
+          </p>
+        </FormDialog>
+      )}
       {action && (
         <LeadActionDialog
           {...action}

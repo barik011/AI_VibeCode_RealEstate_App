@@ -15,6 +15,7 @@ import {
   useCommand,
 } from '../components/UI';
 import { LeadActionDialog } from '../components/LeadActions';
+import { useCRMClock } from '../useCRMClock';
 
 function WorkDialog({ mode, record, viewing, onClose }) {
   const run = useCommand();
@@ -73,6 +74,7 @@ function WorkDialog({ mode, record, viewing, onClose }) {
   );
 }
 export function WorkPage({ viewing = false }) {
+  useCRMClock();
   const data = useSelector(selectWorkspace);
   const user = useSelector(selectUser);
   const base = isAdmin(user) ? '/admin' : '/agent';
