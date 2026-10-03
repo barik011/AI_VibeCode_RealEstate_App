@@ -66,9 +66,20 @@ When editing English copy or adding catalog entries, add the corresponding Arabi
 - `src/utils/storage.js`: guarded localStorage access with the `dubai-bayt:` prefix.
 - `src/components/`: layout, UI primitives, property cards/gallery helpers, search, forms and reusable sections.
 - `src/pages/`: lazy-loaded page modules. `App.jsx` contains routing and the error boundary.
-- `src/styles.css`: design tokens, Tailwind integration, component styling, breakpoints and reduced-motion rules.
+- `src/styles/tokens.css`: shared typography, font weights, semantic colors and theme aliases.
+- `src/styles.css`: Tailwind integration, component styling, breakpoints and reduced-motion rules.
 
 Reusable pieces include Header/Layout, Footer, Logo, Photo with fallback, Button, SectionHeader, PropertyCard/Grid/Facts, FavoriteButton, PropertySearch, Modal, SearchOverlay, ContactForm, NewsletterForm, PageHero, Breadcrumb, EmptyState, Loader, SEO and toast feedback.
+
+### CSS conventions
+
+Define font sizes and colors in `src/styles/tokens.css` and consume them with `var()` in public, CRM and Arabic styles. Reuse an existing size variant (for example `var(--font-size-sm)` or `var(--font-size-15)`) before adding one. Numeric variant names identify the original pixel size; named fluid variants such as `--font-size-hero` own the complete responsive `clamp()` expression. The existing size range is retained to preserve the design.
+
+Color tokens describe their purpose: `--color-text`, `--color-crm-canvas`, `--color-crm-success-surface`, and so on. Use these tokens for text, backgrounds, gradients, borders, shadows and focus indicators. CSS keywords such as `transparent`, `currentColor` and `inherit` remain literal. Keep component layout rules in their component stylesheet and locale overrides in `src/i18n/rtl.css`.
+
+Use `--font-weight-regular`, `--font-weight-medium`, `--font-weight-semibold` and `--font-weight-bold` for weights. CRM titles use the bold variant. Existing theme aliases remain available, including `--navy`, `--ink`, `--heading` and `--body`; Arabic overrides the font-family aliases without changing CRM typography.
+
+Run `npm run test:styles` to check token usage, missing variable definitions and circular token references. The production build runs this check automatically. When changing token values, check desktop/mobile layouts and Arabic pages because tokens are shared across the application.
 
 Motion handles section reveals, hero text and testimonial fades. The hero uses a 6.5-second interval with CSS crossfades/scale, manual indicators and a pause control. Reduced-motion preferences suppress autoplay and movement. Native dialogs provide focus containment, Escape handling and focus restoration. Mobile navigation locks background scrolling.
 

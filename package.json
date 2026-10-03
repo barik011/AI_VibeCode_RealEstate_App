@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "build": "npm run test:styles && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test --test-concurrency=1 tests/*.test.js",
     "test:translations": "node scripts/check-translations.mjs",
+    "test:styles": "node scripts/check-css-tokens.mjs",
     "test:e2e": "playwright test",
     "supabase:status": "node scripts/supabase-status.mjs",
     "supabase:migrate": "node scripts/supabase-migrate.mjs",
@@ -37,6 +38,7 @@
     "@electric-sql/pglite": "^0.5.8",
     "@playwright/test": "^1.63.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "postcss": "^8.5.28",
     "prettier": "^3.9.9",
     "supabase": "^2.118.0",
     "vite": "^8.3.1"

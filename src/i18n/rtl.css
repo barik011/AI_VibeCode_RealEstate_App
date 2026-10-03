@@ -4,10 +4,10 @@
   min-width: 62px;
   min-height: 36px;
   padding: 5px 10px;
-  border: 1px solid #ffffff55;
+  border: 1px solid var(--color-language-switch-border);
   border-radius: 22px;
-  color: #fff;
-  font-size: 12px;
+  color: var(--color-white);
+  font-size: var(--font-size-12);
   line-height: 1.6;
   white-space: nowrap;
 }
@@ -15,7 +15,7 @@
   font-family: 'Noto Sans Arabic', sans-serif;
 }
 .language-switch:hover {
-  background: #ffffff15;
+  background: var(--color-language-switch-hover);
 }
 html[lang='ar'] {
   --body: 'Noto Sans Arabic', Tahoma, sans-serif;
@@ -32,7 +32,7 @@ html[lang='ar'] :is(h1, h2, h3, h4) {
 }
 html[lang='ar'] .eyebrow {
   letter-spacing: 0;
-  font-size: 11px;
+  font-size: var(--font-size-11);
 }
 html[lang='ar']
   :is(
@@ -48,12 +48,12 @@ html[lang='ar']
 }
 html[lang='ar'] .logo > span {
   font-family: 'Noto Naskh Arabic', serif;
-  font-size: 29px;
+  font-size: var(--font-size-29);
   line-height: 1.15;
 }
 html[lang='ar'] .logo small {
   font-family: 'Noto Sans Arabic', sans-serif;
-  font-size: 7px;
+  font-size: var(--font-size-7);
   line-height: 1.5;
 }
 html[lang='ar'] .hero {
@@ -79,27 +79,37 @@ html[lang='ar'] .hero-handwritten {
 }
 html[lang='ar'] .hero-shade {
   background:
-    linear-gradient(270deg, #061d30e0 0%, #0b26379c 36%, #10212f18 73%),
-    linear-gradient(0deg, #06212dd9, transparent 45%, #0619253d);
+    linear-gradient(
+      270deg,
+      var(--color-hero-ar-overlay-start) 0%,
+      var(--color-hero-ar-overlay-middle) 36%,
+      var(--color-hero-overlay-end) 73%
+    ),
+    linear-gradient(
+      0deg,
+      var(--color-hero-overlay-bottom),
+      transparent 45%,
+      var(--color-hero-overlay-top)
+    );
 }
 html[lang='ar'] .hero-stats strong {
   line-height: 1.4;
 }
 html[lang='ar'] .hero-stats span {
-  font-size: 10px;
+  font-size: var(--font-size-10);
 }
 html[lang='ar'] .featured-section .property-card h3 {
-  font-size: clamp(18px, 1.35vw, 24px);
+  font-size: var(--font-size-featured-title-ar);
 }
 html[lang='ar'] .property-card-body > p {
-  font-size: 11px;
+  font-size: var(--font-size-11);
 }
 html[lang='ar'] .property-facts {
   gap: 10px;
   flex-wrap: wrap;
 }
 html[lang='ar'] .property-facts span {
-  font-size: 10px;
+  font-size: var(--font-size-10);
 }
 html[lang='ar'] .property-price strong {
   unicode-bidi: isolate;
@@ -111,10 +121,10 @@ html[lang='ar'] .story-image blockquote {
   line-height: 1.7;
 }
 html[lang='ar'] .category-card h3 {
-  font-size: 20px;
+  font-size: var(--font-size-20);
 }
 html[lang='ar'] .category-card p {
-  font-size: 10px;
+  font-size: var(--font-size-10);
 }
 html[lang='ar'] .category-card span {
   display: inline-block;
@@ -124,16 +134,25 @@ html[lang='ar'] .testimonial-art p {
   transform: rotate(9deg);
 }
 html[lang='ar'] .location-shade {
-  background: linear-gradient(270deg, #062333f5, #0b253a9e 65%, #102f43f0);
+  background: linear-gradient(
+    270deg,
+    var(--color-location-overlay-start),
+    var(--color-location-overlay-middle) 65%,
+    var(--color-location-overlay-end)
+  );
 }
 html[lang='ar'] .benefits-photo {
-  mask-image: linear-gradient(270deg, transparent, #000 50%);
+  mask-image: linear-gradient(270deg, transparent, var(--color-black) 50%);
 }
 html[lang='ar'] .final-cta > img {
-  mask-image: linear-gradient(270deg, transparent, #000 45%);
+  mask-image: linear-gradient(270deg, transparent, var(--color-black) 45%);
 }
 html[lang='ar'] .page-hero.with-image::after {
-  background: linear-gradient(270deg, #0c2331cb, #0c233150);
+  background: linear-gradient(
+    270deg,
+    var(--color-page-hero-overlay-start),
+    var(--color-page-hero-overlay-end)
+  );
 }
 html[dir='rtl'] :is(.lucide-arrow-right, .lucide-arrow-left, .lucide-arrow-up-right) {
   transform: scaleX(-1);
@@ -166,7 +185,7 @@ input[readonly] {
   unicode-bidi: isolate;
 }
 html[lang='ar'] .modal-heading h2 {
-  font-size: 32px;
+  font-size: var(--font-size-32);
 }
 @media (max-width: 1200px) {
   html[lang='ar'] .header-cta {
@@ -176,12 +195,12 @@ html[lang='ar'] .modal-heading h2 {
     padding-block-start: 145px;
   }
   html[lang='ar'] .hero-stats span {
-    font-size: 9px;
+    font-size: var(--font-size-9);
   }
 }
 @media (max-width: 980px) {
   html[lang='ar'] .hero-handwritten {
-    font-size: 28px;
+    font-size: var(--font-size-28);
   }
   html[lang='ar'] .hero-content {
     width: 70%;
@@ -194,13 +213,13 @@ html[lang='ar'] .modal-heading h2 {
   .language-switch {
     min-width: 50px;
     padding-inline: 7px;
-    font-size: 11px;
+    font-size: var(--font-size-11);
   }
   .header-actions {
     gap: 3px;
   }
   .logo > span {
-    font-size: 18px;
+    font-size: var(--font-size-18);
   }
   .logo {
     gap: 5px;
@@ -218,22 +237,26 @@ html[lang='ar'] .modal-heading h2 {
     max-height: none;
   }
   html[lang='ar'] .hero h1 {
-    font-size: clamp(43px, 10.6vw, 64px);
+    font-size: var(--font-size-hero-mobile-ar);
     line-height: 1.25;
   }
   html[lang='ar'] .hero-content .eyebrow {
-    font-size: 11px;
+    font-size: var(--font-size-11);
   }
   html[lang='ar'] .hero-shade {
     background:
-      linear-gradient(270deg, #061e31df, #0b253954),
-      linear-gradient(0deg, #061e31ed, transparent 80%);
+      linear-gradient(
+        270deg,
+        var(--color-hero-ar-mobile-overlay-start),
+        var(--color-hero-mobile-overlay-end)
+      ),
+      linear-gradient(0deg, var(--color-hero-mobile-overlay-bottom), transparent 80%);
   }
   html[lang='ar'] .hero-stats strong {
-    font-size: 23px;
+    font-size: var(--font-size-23);
   }
   html[lang='ar'] .hero-stats span {
-    font-size: 8px;
+    font-size: var(--font-size-8);
   }
   html[lang='ar'] .hero-stats > div {
     padding-inline-start: 9px;
@@ -242,10 +265,10 @@ html[lang='ar'] .modal-heading h2 {
     padding-inline-start: 0;
   }
   html[lang='ar'] .featured-section .property-card h3 {
-    font-size: 27px;
+    font-size: var(--font-size-27);
   }
   html[lang='ar'] .section-heading h2 {
-    font-size: 28px;
+    font-size: var(--font-size-28);
   }
   html[lang='ar'] .text-link {
     white-space: normal;
@@ -254,13 +277,13 @@ html[lang='ar'] .modal-heading h2 {
     white-space: normal;
   }
   html[lang='ar'] .property-price strong {
-    font-size: 15px;
+    font-size: var(--font-size-15);
   }
   html[lang='ar'] .page-hero h1 {
-    font-size: 43px;
+    font-size: var(--font-size-43);
   }
   html[lang='ar'] .logo > span {
-    font-size: 27px;
+    font-size: var(--font-size-27);
   }
 }
 @media (max-width: 370px) {
@@ -271,15 +294,15 @@ html[lang='ar'] .modal-heading h2 {
     width: 30px;
   }
   .logo > span {
-    font-size: 16px;
+    font-size: var(--font-size-16);
   }
   .logo small {
-    font-size: 4.6px;
+    font-size: var(--font-size-4-6);
   }
   html[lang='ar'] .hero-stats span {
-    font-size: 7px;
+    font-size: var(--font-size-7);
   }
   html[lang='ar'] .section-heading h2 {
-    font-size: 25px;
+    font-size: var(--font-size-25);
   }
 }
