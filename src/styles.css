@@ -31,7 +31,6 @@
   --font-size-3xl:42px;
   --font-size-4xl:52px;
   --font-size-5xl:62px;
-
 }
 * {
   box-sizing: border-box;
@@ -177,7 +176,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 11px;
-  font-size: 11px;
+  font-size: var(--font-size-xs);
   white-space: nowrap;
 }
 .icon-button {
@@ -486,7 +485,7 @@ svg {
   font: 500 24px/1.1 var(--heading);
 }
 .hero-stats span {
-  font-size: 10px;
+  font-size: var(--font-size-xs);
   color: #d0dae1;
 }
 .hero-bottom-right {
@@ -535,7 +534,7 @@ svg {
   padding-inline: var(--gutter) 30px;
 }
 .featured-section .section-heading p {
-  font-size: 9px;
+  font-size:var(--font-size-2xs);
   letter-spacing: 0.22em;
 }
 .property-grid {
@@ -614,7 +613,7 @@ svg {
   line-height: 1.2;
 }
 .property-card-body > p {
-  font-size: 10px;
+  font-size: var(--font-size-xs);
   margin-top: 3px;
 }
 .property-facts {
@@ -675,7 +674,7 @@ svg {
   gap: 10px;
 }
 .featured-section .property-facts span {
-  font-size: 8px;
+  font-size: var(--font-size-2xs);
   gap: 4px;
 }
 .featured-section .property-price strong {
@@ -800,7 +799,7 @@ svg {
   font-size: 17px;
 }
 .category-card p {
-  font-size: 9px;
+  font-size:var(--font-size-2xs);
   line-height: 1.5;
   margin-top: 3px;
 }
@@ -940,7 +939,8 @@ svg {
   padding: 7px;
   border: 1px solid transparent;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   transition: background 0.2s;
 }
 .location-selector button.active {
@@ -1111,12 +1111,13 @@ svg {
 }
 .footer-column h3 {
   font-family: var(--body);
-  font-size: 11px;
+  font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
   letter-spacing: 0;
   margin: 2px 0 10px;
 }
 .footer-column a {
-  font-size: 10px;
+  font-size: var(--font-size-xs);
   color: #aab8c2;
 }
 .footer-column a:hover,
@@ -2272,7 +2273,7 @@ details p {
     gap: 10px;
   }
   .compact .text-link {
-    font-size: 9px;
+    font-size: var(--font-size-xs);
     gap: 6px;
   }
   .locations-panel {
@@ -2430,7 +2431,7 @@ details p {
     font-size: 34px;
   }
   .compact .text-link {
-    font-size: 11px;
+    font-size: var(--font-size-xs);
   }
   .compact .benefit {
     font-size: 13px;
@@ -2724,7 +2725,7 @@ details p {
   }
   .section-heading .text-link {
     margin-top: 10px;
-    font-size: 10px;
+    font-size: var(--font-size-xs);
     gap: 5px;
   }
   .section-heading p {
@@ -2971,7 +2972,8 @@ details p {
     gap: 22px;
   }
   .footer-column h3 {
-    font-size: 12px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
   }
   .footer-column a {
     font-size: 11px;

@@ -201,7 +201,7 @@
   min-width: 0;
 }
 .crm-topbar {
-  height: 80px;
+  height: 40px;
   display: flex;
   align-items: center;
   gap: 20px;
